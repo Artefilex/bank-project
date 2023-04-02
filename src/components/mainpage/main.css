@@ -1,0 +1,25 @@
+.MainPage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.MainPage .MainPage_Content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+.MainPage .MainPage_Content .MainPage_News{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+   width: 100%;
+}
+
+

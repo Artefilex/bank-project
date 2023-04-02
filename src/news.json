@@ -1,0 +1,104 @@
+[
+ {
+  "id": 1,
+  "bankName": "Odeabank Enuygun’a Özel Odeabank Oksijen Dinamik Hesap",
+  "faizOran": [
+    {"label": "Gün","oran": 25.00},
+    {"label": "Ay", "oran": 25.00} ,
+    {"label": "Yıl" ,"oran": 22.50} 
+
+]
+ },
+{ 
+ "img":"https://cdn2.enuygun.com/img/finance/uploads/logo_odeabank_981c25c8e4.png",
+ "brüt":"1",
+ "net": "0.95",
+ "faiz": "0.05"
+},
+{
+    "id": 2,
+    "bankName": "ON Dijital E-Mevduat ON",
+    "faizOran": [
+        {"label": "Gün","oran": 10.00},
+        {"label": "Ay", "oran": 18.75} ,
+        {"label": "Yıl" ,"oran": 27.00} 
+    
+    ],
+    "img":"https://cdn2.enuygun.com/img/finance/uploads/ON_127a9d2631.png",
+    "brüt":"1",
+    "net": "0.95",
+    "faiz": "0.05"
+ },
+ {
+    "id": 3,
+    "bankName": "Alternatif Bank e – Mevduat",
+    "faizOran":[
+        {"label": "Gün","oran": 29.00},
+        {"label": "Ay", "oran": 29.00} ,
+        {"label": "Yıl" ,"oran": 29.00} 
+    
+    ] ,
+    "img":"https://cdn2.enuygun.com/img/finance/uploads/logo_alternatifbank_ddd930f269.png",
+    "brüt":"1",
+    "net": "0.95",
+    "faiz": "0.05"
+ },
+ {
+    "id": 4,
+    "bankName": "ING e-Turuncu Hesap  ",
+    "faizOran":[
+        {"label": "Gün","oran": 27.00},
+        {"label": "Ay", "oran": 27.00} 
+    ],
+    "img":"https://cdn2.enuygun.com/img/finance/uploads/logo_ing_52e54fb1a3.png",
+    "brüt":"1",
+    "net": "0.95",
+    "faiz": "0.05"
+ 
+ },
+ {
+    "id": 5,
+    "bankName": "Fibabanka Kiraz Hesap   ",
+    "faizOran": [
+        {"label": "Gün","oran": 27.00},
+        {"label": "Ay", "oran": 27.00} ,
+        {"label": "Yıl" ,"oran": 27.00} 
+    
+    ] ,
+    "img":"https://cdn2.enuygun.com/img/finance/uploads/logo_fibabanka_824ead55e2.png",
+    "brüt":"1",
+    "net": "0.95",
+    "faiz": "0.05"
+ 
+ },
+ {
+    "id": 6,
+    "bankName": "Akbank Direkt Vadeli Hesap ",
+    "faizOran":[
+        {"label": "Ay", "oran": 24.00} ,
+        {"label": "Yıl" ,"oran": 15.00} 
+    
+    ],
+    "img":"https://cdn2.enuygun.com/img/finance/uploads/logo_akbank_83bb615f39.png",
+    "brüt":"1",
+    "net": "0.95",
+    "faiz": "0.05"
+ 
+ },
+ {
+    "id": 7,
+    "bankName": "Türkiye İş Bankası Şubesiz Vadeli Mevduat  ",
+    "faizOran": [
+        {"label": "Gün","oran": 27.00},
+        {"label": "Ay", "oran": 16.50} ,
+        {"label": "Yıl" ,"oran": 11.75} 
+    
+    ],
+    "img":"https://cdn2.enuygun.com/img/finance/uploads/logo_turkiyeisbankasi_9a149e23d8.png",
+    "brüt":"1",
+    "net": "0.95",
+    "faiz": "0.05"
+ }
+]
+
+
