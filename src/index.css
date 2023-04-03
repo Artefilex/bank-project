@@ -3,7 +3,7 @@
 :root{
   --font-family: 'Manrope', sans-serif;
   --background-nav: rgb(242, 238, 238);
-  --background-body: rgb(179, 179, 179);
+  --background-body: rgb(217, 217, 217);
   --background-app : rgb(228, 228, 228);
   --background-dmode-nav: rgb(18, 18, 18);
   --background-dmode-body: rgb(24, 24, 24);
@@ -16,6 +16,7 @@
   --padding-standart: 0 3rem;
   --footer-item-color: rgb(228, 228, 228);
   --fotter-item-hover: rgb(150, 150, 150);
+  --span-color: rgb(155, 155, 155);
 }
 
 *{

@@ -8,7 +8,7 @@ const DataList = () => {
  const dispatch = useDispatch()
  
  const myHeader = new Headers()
- myHeader.append("apikey", "apiKey_here" )
+ myHeader.append("apikey", "apikey" )
 
   const requestOptions = {
     method: 'GET',
