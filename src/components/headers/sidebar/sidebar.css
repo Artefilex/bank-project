@@ -1,5 +1,5 @@
 .Sidebar{
-    height: 95vh;
+    min-height: 95vh;
     width: 23rem;
     position: absolute;
     right: 0;
