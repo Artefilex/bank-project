@@ -63,7 +63,7 @@ const CurrencyNav = () => {
           overflowX: 'hidden',
           scrollBehavior: 'smooth',
           whiteSpace: 'nowrap',
-          width: "100vw",
+          width: "98vw",
           scrollLeft: scrollPosition,
         }}
         onScroll={(event) => setScrollPosition(event.target.scrollLeft)}
