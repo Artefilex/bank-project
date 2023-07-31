@@ -7,13 +7,13 @@ const DataList = () => {
 
  const dispatch = useDispatch()
  
- const myHeader = new Headers()
- myHeader.append("apikey", "apikey" )
+ const myHeaders = new Headers()
+ myHeaders.append("apikey", `${process.env.REACT_APP_API_URL}`)
 
   const requestOptions = {
     method: 'GET',
-    redirect: 'follow',
-    headers: myHeader
+  redirect: 'follow',
+  headers: myHeaders
   }
 
   useEffect(() => {
@@ -24,12 +24,10 @@ const DataList = () => {
     return clearInterval(intervalData)
   })
 
-  async function data() {
+   const data = async () => {
     const response = await fetch("https://api.apilayer.com/exchangerates_data/latest?base=TRY", requestOptions)
     const result = await response.json()
-    dispatch(addCurrency(result))
-   
-    
+    dispatch(addCurrency(result)) 
   }
 
 
