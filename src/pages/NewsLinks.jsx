@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react"
-import { getNewsFromLocalStorage } from "../../reducers/NewsSlice";
+import { getNewsFromLocalStorage } from "../reducers/NewsSlice";
 const NewsLinks = ( ) => {
   const [news, setNews] = useState([])
  

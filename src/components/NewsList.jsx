@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { addNews ,addNewsToLocalStorage} from "../../reducers/NewsSlice"
+import { addNews ,addNewsToLocalStorage} from "../reducers/NewsSlice"
 import { useState } from "react"
 import "./news.css"
 

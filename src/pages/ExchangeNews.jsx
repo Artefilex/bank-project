@@ -1,5 +1,5 @@
 import {useState,useEffect} from 'react'
-import { getNewsFromLocalStorage } from '../../reducers/NewsSlice'
+import { getNewsFromLocalStorage } from '../reducers/NewsSlice'
 
 const ExchangeNews = () => {
 

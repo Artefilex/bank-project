@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import { getNewsFromLocalStorage } from '../../reducers/NewsSlice'
+import { getNewsFromLocalStorage } from '../reducers/NewsSlice'
 const CurrencyNews = () => {
    const [news ,setNews] = useState([])
  
