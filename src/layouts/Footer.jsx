@@ -1,13 +1,13 @@
 
 import "./footer.css"
-import Dollar from "../../assest/Dollar.svg"
+
 const Footer = () => {
   return (
     <div className='Footer'>
       <div className='Footer_Container'> 
       <div className='Footer_Container-content'> 
            <div className='Footer_Container-content-about'>
-           <a href="http://localhost:3000/"> <img src={Dollar} alt="" /> <h4>CoinFlex </h4></a>
+           <a href="http://localhost:3000/"> <img src={"Dollar"} alt="" /> <h4>CoinFlex </h4></a>
            </div>
 
           <div className='Footer_Container-content-navigate'>

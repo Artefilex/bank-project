@@ -1,204 +1,103 @@
-import { useState } from 'react'
-import "./credit.css"
-
+import { useState } from "react";
+import BankInterestCard from "../components/BankInterestCard";
+import { allBank } from "../mockData/allbank";
 const Credit = () => {
   const options = [
     { value: "0.274", label: "Gün" },
     { value: "8.2192", label: "Ay" },
-    { value: "100", label: "Yıl" }
-  ]
+    { value: "100", label: "Yıl" },
+  ];
+  const [mevduat, setMevduat] = useState("");
+  const [period, setPeriod] = useState("");
+  const [duration, setDuration] = useState("");
+  const [time, setTime] = useState("Gün");
 
-  const [mevduat, setMevduat] = useState("")
-  const [period, setPeriod] = useState("")
-  const [duration, setDuration] = useState("1")
-  const [time, setTime] = useState("Gün")
-  const allBank = [{
-    "id": 1,
-    "bankName": "Odeabank Enuygun’a Özel Odeabank Oksijen Dinamik Hesap",
-    "faizoran": [
-      { "label": "Gün", "oran": 25.00 },
-      { "label": "Ay", "oran": 25.00 },
-      { "label": "Yıl", "oran": 22.50 }
-
-    ],
-
-    "img": "https://cdn2.enuygun.com/img/finance/uploads/logo_odeabank_981c25c8e4.png",
-    "brüt": "1",
-    "net": "0.95",
-    "faiz": "0.05"
-  },
-  {
-    "id": 2,
-    "bankName": "ON Dijital E-Mevduat ON",
-    "faizoran": [
-      { "label": "Gün", "oran": 11.00 },
-      { "label": "Ay", "oran": 18.75 },
-      { "label": "Yıl", "oran": 27.00 }
-
-    ],
-    "img": "https://cdn2.enuygun.com/img/finance/uploads/ON_127a9d2631.png",
-    "brüt": "1",
-    "net": "0.95",
-    "faiz": "0.05"
-  },
-  {
-    "id": 3,
-    "bankName": "Alternatif Bank e – Mevduat",
-    "faizoran": [
-      { "label": "Gün", "oran": 29.00 },
-      { "label": "Ay", "oran": 29.00 },
-      { "label": "Yıl", "oran": 29.00 }
-
-    ],
-    "img": "https://cdn2.enuygun.com/img/finance/uploads/logo_alternatifbank_ddd930f269.png",
-    "brüt": "1",
-    "net": "0.95",
-    "faiz": "0.05"
-  },
-  {
-    "id": 4,
-    "bankName": "ING e-Turuncu Hesap  ",
-    "faizoran": [
-      { "label": "Gün", "oran": 27.00 },
-      { "label": "Ay", "oran": 27.00 },
-      { "label": "Yıl", "oran": 0 }
-    ],
-    "img": "https://cdn2.enuygun.com/img/finance/uploads/logo_ing_52e54fb1a3.png",
-    "brüt": "1",
-    "net": "0.95",
-    "faiz": "0.05"
-
-  },
-  {
-    "id": 5,
-    "bankName": "Fibabanka Kiraz Hesap   ",
-    "faizoran": [
-      { "label": "Gün", "oran": 27.00 },
-      { "label": "Ay", "oran": 27.00 },
-      { "label": "Yıl", "oran": 27.00 }
-
-    ],
-    "img": "https://cdn2.enuygun.com/img/finance/uploads/logo_fibabanka_824ead55e2.png",
-    "brüt": "1",
-    "net": "0.95",
-    "faiz": "0.05"
-
-  },
-  {
-    "id": 6,
-    "bankName": "Akbank Direkt Vadeli Hesap ",
-    "faizoran": [
-      { "label": "Gün", "oran": 0 },
-      { "label": "Ay", "oran": 24.00 },
-      { "label": "Yıl", "oran": 15.00 }
-
-    ],
-    "img": "https://cdn2.enuygun.com/img/finance/uploads/logo_akbank_83bb615f39.png",
-    "brüt": "1",
-    "net": "0.95",
-    "faiz": "0.05"
-
-  },
-  {
-    "id": 7,
-    "bankName": "Türkiye İş Bankası Şubesiz Vadeli Mevduat  ",
-    "faizoran": [
-      { "label": "Gün", "oran": 27.00 },
-      { "label": "Ay", "oran": 16.50 },
-      { "label": "Yıl", "oran": 11.75 }
-
-    ],
-    "img": "https://cdn2.enuygun.com/img/finance/uploads/logo_turkiyeisbankasi_9a149e23d8.png",
-    "brüt": "1",
-    "net": "0.95",
-    "faiz": "0.05"
-  }]
-
-
-
-  const changed = (e) => setMevduat(e.target.value)
-  const changedPeriod = (e) => setPeriod(e.target.value)
   const durationChange = (e) => {
-    setDuration(e.target.value)
-    setTime((options.find(option => option.value === e.target.value).label))
-  }
+    setDuration(e.target.value);
+    setTime(options.find((option) => option.value === e.target.value).label);
+  };
 
   const calculateCredit = (e) => {
-    e.preventDefault()
-    setMevduat("")
-    setPeriod("")
-    setDuration("")
-  }
-  
-     
+    e.preventDefault();
+    setMevduat("");
+    setPeriod("");
+    setDuration("");
+  };
+
   return (
-    <div className='Credit'>
-      <form onSubmit={calculateCredit} className='Credit_Form'>
-       <div className='Credit_Form_Input-container'>
-       <div className='Credit_Form-container-firstInput'>
-          <label htmlFor="money"> Mevduat Tutarı </label>
-          <input id='money' name='money' value={mevduat} type="text" placeholder='Miktar Girin' onChange={changed} />
-        </div>
-        <div className='Credit_Form-container'>
-          <div className='Credit_Form-container-input'>
-            <label htmlFor="vade"> Vade</label>
-            <input type="text" value={period} onChange={changedPeriod} placeholder='Süre Girin' />
+    <div className="flex flex-col w-[90%] items-center  justify-center">
+      <h2 className="text-2xl font-semibold text-slate-800">Faiz Hesapla</h2>
+      <form
+        onSubmit={calculateCredit}
+        className="flex mt-2 w-full p-4 gap-6 justify-between flex-col tablet:flex-row"
+      >
+        <div className="flex w-full flex-col gap-4 items-center justify-center tablet:flex-row tablet:gap-0 ">
+          <div className="flex flex-col border-2 border-gray-700 rounded-md items-start tablet:border-r-0 gap-3 justify-start w-full tablet:rounded-tl-md tablet:rounded-bl-md tablet:rounded-tr-none tablet:rounded-br-none px-2">
+            <label htmlFor="money" className="text-xl px-2 py-1 font-semibold">
+              Mevduat Tutarı{" "}
+            </label>
+            <input
+              id="money"
+              name="money"
+              value={mevduat}
+              type="text"
+              placeholder="Miktar Girin"
+              className="border-none px-2 py-1 outline-none w-full"
+              onChange={(e) => setMevduat(e.target.value)}
+            />
           </div>
-      
-        <select name='vade' value={duration} onChange={durationChange} >
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-       
+          <div className="flex w-full">
+            <div className="flex flex-col border-2 border-gray-700 items-start gap-3 rounded justify-start w-full tablet:rounded-tr-none  rounded-tr-none rounded-br-none tablet:rounded-br-none px-2 tablet:rounded-tl-none tablet:rounded-bl-none ">
+              <label
+                htmlFor="period"
+                className="text-xl px-2 py-1 font-semibold"
+              >
+                Vade{" "}
+              </label>
+              <input
+                name="period"
+                type="text"
+                value={period}
+                onChange={(e) => setPeriod(e.target.value)}
+                className="border-none px-2 py-1 outline-none  w-full"
+                placeholder="Süre Girin"
+              />
+            </div>
+            <select
+              className="w-full max-w-[5rem] flex items-center border-2 rounded-tr-md rounded-br-md border-l-0  border-gray-700  gap-1 justify-center text-xl font-semibold"
+              name="vade"
+              value={duration}
+              onChange={durationChange}
+            >
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-       </div>
 
-        <div className='Credit_Form-container-button'>
-          <button type='submit'> <span>Yeniden Hesapla </span></button>
-        </div>
+        <button
+          className="flex items-center justify-center bg-green-600 px-4 rounded text-white font-bold hover:bg-green-500 hover:text-slate-200 transition-colors  w-full tablet:max-w-[12rem] py-5 tablet:py-0 "
+          type="submit"
+        >
+          Hesapla
+        </button>
       </form>
-
-      <div className="Credit_Bank">
-        {
-
-          allBank.map((banks, key) => ( 
-          
-                <div key={key} className='Credit_Bank-container' >
-                <div className='Credit_Bank-container-faiz-img'>
-                  <img src={banks.img} alt={banks.bankName} />
-                </div>
-                {banks.faizoran && banks.faizoran.filter(oran => oran.label === time ).map(b => (
-                  <div key={b} className='Credit_Bank-container-faiz'>
-                    <div className='Credit_Bank-container-faiz-box'>
-                      <span> Faiz Oranı</span>
-                      <h4> %{b.oran.toFixed(2)}</h4>
-                    </div>
-                    <div className='Credit_Bank-container-faiz-box'>
-                      <span>Net Getiri</span>
-                      <h4> {(b.oran / 100 * 0.95 * mevduat * period * duration / 100).toFixed(2)} TL</h4>
-                    </div>
-                    <div className='Credit_Bank-container-faiz-box'>
-                      <span>Vade Sonu Ödeme </span>
-                      <h4>{Number(b.oran / 100 * 0.95 * mevduat * period * duration / 100 + Number(mevduat)).toFixed(2)} TL</h4>
-                    </div>
-                  </div>
-                ))
-                }
-              </div>
-              
-              
-            
-          ))
-        }
-
-      </div>
-
-
+      {allBank.map((banks, i) => (
+        <BankInterestCard
+          key={i}
+          interestRate={banks.faizoran}
+          url={banks.img}
+          mevduat={mevduat}
+          period={period}
+          duration={duration}
+          time={time}
+        />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Credit
+export default Credit;

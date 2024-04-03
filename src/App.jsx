@@ -5,11 +5,12 @@ import GoldNews from "./pages/GoldNews"
 import EmtiaNews from "./pages/EmtiaNews"
 import CyrptoNews from "./pages/CyrptoNews"
 import ExchangeNews from "./pages/ExchangeNews"
-import NewsLinks from "./pages/NewsLinks"
+import Credit from "./pages/Credit";
 function App() {
   return (
-    <div className="flex items-center justify-center flex-col w-full h-full min-h-[100vh]">
-      <Router>
+    <div className="flex items-center justify-center flex-col w-full h-full min-h-[100vh] ">
+    <div className="flex items-center justify-center flex-col w-full max-w-[1280px]">
+    <Router>
         <Routes>
           <Route path="/" exact element={<Home/>} />
           <Route path="/currency" element={<CurrencyNews />} />
@@ -17,11 +18,11 @@ function App() {
           <Route path="/emtia" element={<EmtiaNews />} />
           <Route path="/cyrpto" element={<CyrptoNews />} />
           <Route path="/exchange" element={<ExchangeNews />} />
-          {/* <Route path="/news" element={<NewsList />} /> */}
-          {/* <Route path="/credit" element={<Credit />}></Route> */}
-          <Route path="/:title" element={<NewsLinks />} />
+          <Route path="/credit" element={<Credit />}></Route>
+ 
         </Routes>
       </Router>
+    </div>
     </div>
   );
 }
