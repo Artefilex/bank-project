@@ -7,6 +7,7 @@ export default {
   theme: {
     screens:{
       "mobile": "400px",
+      "xmobile": "500px",
       "tablet": "800px",
       'laptop': '1024px',
       'desktop': '1280px'

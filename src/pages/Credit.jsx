@@ -26,13 +26,13 @@ const Credit = () => {
 
   return (
     <div className="flex flex-col w-[90%] items-center  justify-center">
-      <h2 className="text-2xl font-semibold text-slate-800">Faiz Hesapla</h2>
+    
       <form
         onSubmit={calculateCredit}
         className="flex mt-2 w-full p-4 gap-6 justify-between flex-col tablet:flex-row"
       >
         <div className="flex w-full flex-col gap-4 items-center justify-center tablet:flex-row tablet:gap-0 ">
-          <div className="flex flex-col border-2 border-gray-700 rounded-md items-start tablet:border-r-0 gap-3 justify-start w-full tablet:rounded-tl-md tablet:rounded-bl-md tablet:rounded-tr-none tablet:rounded-br-none px-2">
+          <div className="flex flex-col border-2 border-gray-400 rounded-md items-start tablet:border-r-0 gap-3 justify-start w-full tablet:rounded-tl-md tablet:rounded-bl-md tablet:rounded-tr-none tablet:rounded-br-none px-2">
             <label htmlFor="money" className="text-xl px-2 py-1 font-semibold">
               Mevduat Tutarı{" "}
             </label>
@@ -47,7 +47,7 @@ const Credit = () => {
             />
           </div>
           <div className="flex w-full">
-            <div className="flex flex-col border-2 border-gray-700 items-start gap-3 rounded justify-start w-full tablet:rounded-tr-none  rounded-tr-none rounded-br-none tablet:rounded-br-none px-2 tablet:rounded-tl-none tablet:rounded-bl-none ">
+            <div className="flex flex-col border-2 border-gray-400 items-start gap-3 rounded justify-start w-full tablet:rounded-tr-none  rounded-tr-none rounded-br-none tablet:rounded-br-none px-2 tablet:rounded-tl-none tablet:rounded-bl-none ">
               <label
                 htmlFor="period"
                 className="text-xl px-2 py-1 font-semibold"
@@ -64,7 +64,7 @@ const Credit = () => {
               />
             </div>
             <select
-              className="w-full max-w-[5rem] flex items-center border-2 rounded-tr-md rounded-br-md border-l-0  border-gray-700  gap-1 justify-center text-xl font-semibold"
+              className="w-full max-w-[5rem] flex items-center border-2 rounded-tr-md rounded-br-md border-l-0  border-gray-400  gap-1 justify-center text-xl font-semibold"
               name="vade"
               value={duration}
               onChange={durationChange}

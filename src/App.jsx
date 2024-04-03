@@ -6,11 +6,14 @@ import EmtiaNews from "./pages/EmtiaNews"
 import CyrptoNews from "./pages/CyrptoNews"
 import ExchangeNews from "./pages/ExchangeNews"
 import Credit from "./pages/Credit";
+import Navbar from "./layouts/Navbar";
+import Footer from "./layouts/Footer"
 function App() {
   return (
-    <div className="flex items-center justify-center flex-col w-full h-full min-h-[100vh] ">
-    <div className="flex items-center justify-center flex-col w-full max-w-[1280px]">
+    <div className="flex items-center justify-start flex-col w-full h-full min-h-[100vh] ">
+    <div className="flex items-center justify-start flex-col w-full max-w-[1280px]">
     <Router>
+      <Navbar/>
         <Routes>
           <Route path="/" exact element={<Home/>} />
           <Route path="/currency" element={<CurrencyNews />} />
@@ -21,7 +24,9 @@ function App() {
           <Route path="/credit" element={<Credit />}></Route>
  
         </Routes>
+        <Footer/>
       </Router>
+
     </div>
     </div>
   );

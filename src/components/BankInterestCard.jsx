@@ -8,15 +8,14 @@ function BankInterestCard({
   duration,
 }) {
   return (
-    <div className="flex gap-8 w-full justify-between items-center p-4
-    
-    bg-slate-200 rounded-md mt-3  ">
+    <div className="flex gap-8 flex-col  w-full justify-between items-center p-4
+    bg-slate-200 rounded-md mt-3 tablet:flex-row ">
       <img src={url} alt={url} />
       {interestRate &&
         interestRate
           .filter((rate) => rate.label === time)
           .map((bank) => (
-            <section key={bank} className="flex w-full gap-4 justify-around ">
+            <section key={bank} className="flex w-full gap-4 justify-around flex-col  xmobile:flex-row ">
               <div className="text-center">
                 <span className="text-[1.2rem] font-semibold text-slate-500"> Faiz Oranı</span>
                 <h4 className="font-semibold"> % {bank.oran.toFixed(2)}</h4>
@@ -43,8 +42,8 @@ BankInterestCard.propTypes = {
   interestRate: PropTypes.array,
   url: PropTypes.string,
   time: PropTypes.string,
-  mevduat: PropTypes.number,
-  duration: PropTypes.number,
+  mevduat: PropTypes.string,
+  duration: PropTypes.string,
   period: PropTypes.string,
 };
 

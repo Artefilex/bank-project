@@ -1,22 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 :root{
-  --font-family: 'Manrope', sans-serif;
-  --background-nav: rgb(242, 238, 238);
-  --background-body: rgb(217, 217, 217);
-  --background-app : rgb(228, 228, 228);
-  --background-dmode-nav: rgb(18, 18, 18);
-  --background-dmode-body: rgb(24, 24, 24);
-  --background-dmode-hover: rgb(40, 40, 40);
-  --background-dmode-hover-item: rgb(64, 64, 64);
-  --background-footer-color: rgb(40, 40, 40) ;
-  --dmode-icon-color: rgb(179, 179, 179);
-  --dmode-text-color: rgb(255, 255, 255);
-  --linear-text-logo : linear-gradient(27deg, rgba(0, 26, 2, 0.95) 0%, rgba(42, 217, 0, 1) 58%, rgba(193, 217, 0, 1) 100%);
-  --padding-standart: 0 3rem;
-  --footer-item-color: rgb(228, 228, 228);
-  --fotter-item-hover: rgb(150, 150, 150);
-  --span-color: rgb(155, 155, 155);
+--bg-footer: rgb(40, 40, 40) ; 
 }
