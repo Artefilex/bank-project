@@ -21,10 +21,9 @@ function Navbar() {
         <Link to="/cyrpto"> Kripto Para </Link>
         <Link to="/exchange"> Borsa</Link>
         <Link to="/credit"> Kredi</Link>
-        <Link to="/news"> Add News</Link>
         </nav>
     }
-  </div>) : ( <div className="flex items-center justify-between w-[90%]">
+  </div>) : ( <div className="flex items-center justify-between w-[95%]">
     <img src={logo} alt="" className="w-[12rem]" />
       <nav className="w-full max-w-[35rem] flex items-center justify-around font-semibold text-[1.1rem]">
       <Link to="/currency">Döviz</Link>
@@ -33,7 +32,6 @@ function Navbar() {
       <Link to="/cyrpto"> Kripto Para </Link>
       <Link to="/exchange"> Borsa</Link>
       <Link to="/credit"> Kredi</Link>
-      <Link to="/news"> Add News</Link>
       </nav>
   </div>)
  }
