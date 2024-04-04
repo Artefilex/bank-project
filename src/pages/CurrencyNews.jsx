@@ -8,13 +8,11 @@ const CurrencyNews = () => {
 
       const fetchData = async() =>{
        const {data}  = await axios.get(`https://newsapi.org/v2/everything?q=currency&apiKey=${import.meta.env.VITE_NEWS_API}`)
-
        const main20News = data.articles.slice(0, 20)
-  
        setNews(main20News) 
       }
      fetchData()
-   const intervalData = setInterval(fetchData , 60 *1000)
+   const intervalData = setInterval(fetchData , 24 * 60 * 60 *1000)
    return () => clearInterval(intervalData);
    },[])
   

@@ -8,12 +8,14 @@ import ExchangeNews from "./pages/ExchangeNews"
 import Credit from "./pages/Credit";
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer"
+import CurrencyNav from "./layouts/CurrencyNav";
 function App() {
   return (
     <div className="flex items-center justify-start flex-col w-full h-full min-h-[100vh] ">
     <div className="flex items-center justify-start flex-col w-full max-w-[1280px]">
     <Router>
       <Navbar/>
+      <CurrencyNav/>
         <Routes>
           <Route path="/" exact element={<Home/>} />
           <Route path="/currency" element={<CurrencyNews />} />

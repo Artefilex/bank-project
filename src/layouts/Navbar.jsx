@@ -11,27 +11,28 @@ function Navbar() {
  <>
  {
     isMobile ? ( <div className="flex items-center justify-between w-full relative">
-    <img src={logo} alt="" className="w-[12rem]" />
+   
+    <Link to="/"> <img src={logo} alt="" className="w-[12rem]" /></Link>
     <button className="pr-4" onClick={() => setShowMenu(!showMenu)}> {showMenu ?  <IoMdClose /> :<IoMdMenu />  } </button>
     {
         showMenu &&   <nav className="w-full max-w-[8rem] flex items-start font-semibold text-slate-700 px-5 py-2 bg-slate-200 flex-col justify-around absolute top-10 right-8 rounded-lg rounded-tr-none border border-slate-500  text-[1.1rem]">
-        <Link to="/currency">Döviz</Link>
-        <Link to="/gold"> Altın</Link>
-        <Link to="/emtia"> Emtialar</Link>
-        <Link to="/cyrpto"> Kripto Para </Link>
-        <Link to="/exchange"> Borsa</Link>
-        <Link to="/credit"> Kredi</Link>
+        <Link to="/currency">Currency</Link>
+        <Link to="/gold"> Gold</Link>
+        <Link to="/emtia"> Commodity</Link>
+        <Link to="/cyrpto"> Cyrpto </Link>
+        <Link to="/exchange"> Exchange</Link>
+        <Link to="/credit"> FD Calculator</Link>
         </nav>
     }
   </div>) : ( <div className="flex items-center justify-between w-[95%]">
-    <img src={logo} alt="" className="w-[12rem]" />
+  <Link to="/"> <img src={logo} alt="" className="w-[12rem]" /></Link>
       <nav className="w-full max-w-[35rem] flex items-center justify-around font-semibold text-[1.1rem]">
-      <Link to="/currency">Döviz</Link>
-      <Link to="/gold"> Altın</Link>
-      <Link to="/emtia"> Emtialar</Link>
-      <Link to="/cyrpto"> Kripto Para </Link>
-      <Link to="/exchange"> Borsa</Link>
-      <Link to="/credit"> Kredi</Link>
+      <Link to="/currency">Currency</Link>
+      <Link to="/gold"> Gold</Link>
+      <Link to="/emtia"> Commodity</Link>
+      <Link to="/cyrpto"> Cyrpto </Link>
+      <Link to="/exchange"> Exchange</Link>
+      <Link to="/credit"> FD Calculator</Link>
       </nav>
   </div>)
  }

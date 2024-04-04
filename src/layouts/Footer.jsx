@@ -10,28 +10,33 @@ const Footer = () => {
           <img src={logo} alt="logo" className="w-full max-w-[15rem] " />
         </Link>
         <div className="w-full max-w-[15rem]">
-          <h2 className="text-xl font-bold text-slate-50">Haberler</h2>
-          <nav className="flex flex-col text-gray-200 font-semibold  ">
-            <Link to="/cyrpto"> Kripto Para</Link>
-            <Link to="/currency"> Döviz </Link>
-            <Link to="/emtia"> Emtia</Link>
-            <Link to="/exchange">Borsa</Link>
-            <Link to="/gold"> Altın</Link>
+          <h2 className="text-xl font-bold text-slate-50">NEWS</h2>
+          <nav className="flex flex-col text-gray-200 font-semibold gap-2 mt-2  ">
+            <Link to="/currency">Currency</Link>
+            <Link to="/gold"> Gold</Link>
+            <Link to="/emtia"> Commodity</Link>
+            <Link to="/cyrpto"> Cyrpto </Link>
+            <Link to="/exchange"> Exchange</Link>
+            <Link to="/credit"> FD Calculator</Link>
           </nav>
         </div>
-        <div  className="w-full max-w-[15rem]">
-          <h2 className="text-xl font-bold text-slate-50">Bize Ulaşın</h2>
-          <nav className="flex flex-col text-gray-200 font-semibold ">
-            <Link to="mailto:baris.tncdmr@gamil.com">  baris.tncdmr@gamil.com </Link>
-            <Link to="tel:+905061210625"> Telefon </Link>
+        <div className="w-full max-w-[15rem]">
+          <h2 className="text-xl font-bold text-slate-50">Contact US</h2>
+          <nav className="flex flex-col gap-4 mt-2 text-gray-200 font-semibold ">
+            <Link to="mailto:baris.tncdmr@gamil.com">
+              {" "}
+              baris.tncdmr@gamil.com{" "}
+            </Link>
             <Link to="https://www.google.com/maps/place/Merve,+S%C4%B1dd%C4%B1k+Sk.+No:21,+34791+Sancaktepe%2F%C4%B0stanbul/@41.0051217,29.2396378,17z/data=!3m1!4b1!4m6!3m5!1s0x14cad1d0975bac89:0x2f5a8d3460400ecf!8m2!3d41.0051217!4d29.2396378!16s%2Fg%2F11c4k72c8y">
               {" "}
-              adrress
+              Sıddık St.Merve, 34791 Sancaktepe/İstanbul
             </Link>
           </nav>
         </div>
       </div>
-      <span className="mt-4 font-bold text-white pb-1 pt-4 ">©2023 Privacy, Terms & Conditions of Use </span>
+      <span className="mt-4 font-bold text-white pb-1 pt-4 ">
+        ©2024 Privacy, Terms & Conditions of Use{" "}
+      </span>
     </footer>
   );
 };

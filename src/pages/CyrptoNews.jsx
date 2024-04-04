@@ -18,7 +18,7 @@ const CyrptoNews = () => {
     
      }
     fetchData()
-  const intervalData = setInterval(fetchData ,60 * 60 * 1000)
+  const intervalData = setInterval(fetchData , 24 * 60 * 60 *1000)
   return () => clearInterval(intervalData);
   },[])
 

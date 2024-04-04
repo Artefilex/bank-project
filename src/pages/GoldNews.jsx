@@ -16,7 +16,7 @@ const GoldNews = () => {
        setNews(main20News) 
       }
      fetchData()
-   const intervalData = setInterval(fetchData , 60 *1000)
+   const intervalData = setInterval(fetchData ,24* 60 * 60 * 1000 )
    return () => clearInterval(intervalData);
    },[])
 
