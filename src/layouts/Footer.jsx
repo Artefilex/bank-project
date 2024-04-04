@@ -17,6 +17,7 @@ const Footer = () => {
             <Link to="/emtia"> Commodity</Link>
             <Link to="/cyrpto"> Cyrpto </Link>
             <Link to="/exchange"> Exchange</Link>
+            <Link to="/market"> Stock Market</Link>
             <Link to="/credit"> FD Calculator</Link>
           </nav>
         </div>

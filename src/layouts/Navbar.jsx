@@ -21,17 +21,19 @@ function Navbar() {
         <Link to="/emtia"> Commodity</Link>
         <Link to="/cyrpto"> Cyrpto </Link>
         <Link to="/exchange"> Exchange</Link>
+        <Link to="/market"> Stock Market</Link>
         <Link to="/credit"> FD Calculator</Link>
         </nav>
     }
   </div>) : ( <div className="flex items-center justify-between w-[95%]">
   <Link to="/"> <img src={logo} alt="" className="w-[12rem]" /></Link>
-      <nav className="w-full max-w-[35rem] flex items-center justify-around font-semibold text-[1.1rem]">
+      <nav className="w-full max-w-[40rem] flex items-center justify-around font-semibold text-[1.1rem]">
       <Link to="/currency">Currency</Link>
       <Link to="/gold"> Gold</Link>
       <Link to="/emtia"> Commodity</Link>
       <Link to="/cyrpto"> Cyrpto </Link>
       <Link to="/exchange"> Exchange</Link>
+      <Link to="/market"> Stock Market</Link>
       <Link to="/credit"> FD Calculator</Link>
       </nav>
   </div>)

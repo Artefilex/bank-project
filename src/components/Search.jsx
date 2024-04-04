@@ -4,7 +4,11 @@ import useDebounce from "../hooks/useDebounce";
 import { popularStocks } from "../mockData/popularStocks";
 import { IoMdSearch } from "react-icons/io";
 import { FaCircleArrowDown ,FaCircleArrowUp } from "react-icons/fa6";
+import Charts from "./Charts";
+import { useDispatch } from "react-redux";
+import { searchSMA } from "../reducers/SearchSlice";
 function Search() {
+  const dispatch = useDispatch()
     const [result ,setResult] = useState(null)
     const [dateRange , setDateRange] = useState({
         today: new Date() ,
@@ -16,7 +20,8 @@ function Search() {
     useEffect(()=>{
         const today = new Date();
         const yesterday = new Date(today);
-        yesterday.setDate(yesterday.getDate() - 1);
+        today.setDate(today.getDate() - 1);
+        yesterday.setDate(yesterday.getDate() - 2);
         const todayStr = today.toISOString().split('T')[0];
         const yesterdayStr = yesterday.toISOString().split('T')[0];
         setDateRange({today: todayStr , yesterday: yesterdayStr})
@@ -24,12 +29,14 @@ function Search() {
     },[])
     const handleSubmit = async (e) =>{
        e.preventDefault()
-       const {data} = await  axios.get(`https://api.polygon.io/v2/aggs/ticker/${debouncedValue.toUpperCase().trim()}/range/1/day/${dateRange.yesterday}/${dateRange.today}?apiKey=mwlB8HOHrB2dpxy5dt4gpq2qf9Ulo8hI`)
+       const debaunce = debouncedValue.toUpperCase().trim()
+       const {data} = await axios.get(`https://api.polygon.io/v2/aggs/ticker/${debaunce}/range/1/day/${dateRange.yesterday}/${dateRange.today}?apiKey=${import.meta.env.VITE_EXCHANGE_API}`)
        setShowStock(false)
-      setResult(data)   
+       setResult(data)   
+       dispatch(searchSMA({debaunce , data}))
        setSearch("")
     }
-    console.log(result)
+   
 
   return <form onSubmit={handleSubmit} className="flex items-start justify-center relative">
    <div className="flex items-center gap-2 flex-col ">
@@ -42,6 +49,7 @@ function Search() {
     {
      popularStocks.map((stock) => <div className="cursor-pointer hover:bg-slate-500 hover:text-slate-50 px-2 py-2 transition-all duration-200" key={stock.label}  onClick={() => {setSearch(stock.value) ; setShowStock(false)}}> {stock.label} </div>)
     }
+ 
   </div> 
    }
    </div>

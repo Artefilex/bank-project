@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import CurrencyReducer from "../reducers/CurrencySlice";
-import NewsReducer from "../reducers/NewsSlice"
+import SearchReducer from "../reducers/SearchSlice";
 const store = configureStore({
    reducer:{
-      currency: CurrencyReducer,
-      news:  NewsReducer
+      searchItem: SearchReducer,
    },
    
 })

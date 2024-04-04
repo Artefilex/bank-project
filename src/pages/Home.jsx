@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import Charts from "../components/Charts"
 
 
 function Home() {
@@ -19,7 +20,7 @@ function Home() {
   },[])
 
   return <div className="flex items-center justify-center w-[90%] flex-row">
-    Home
+  <Charts/>
  
   </div>;
 }
