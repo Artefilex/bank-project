@@ -1,29 +1,18 @@
-import { useState , useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-const EmtiaNews = () => {
-  const [news ,setNews] = useState([])
-  useEffect(()=>{
 
-     const fetchData = async() =>{
-      const {data}  = await axios.get(`https://newsapi.org/v2/everything?q=commodity&apiKey=${import.meta.env.VITE_NEWS_API}`)
-   
-     const main20News = data.articles.slice(0, 20)
+import { Link } from 'react-router-dom'
+
+import { useGetEmtiaNewsQuery } from '../reducers/NewsApi'
+const EmtiaNews = () => {
+  const {data , isLoading , error} = useGetEmtiaNewsQuery()
   
-     setNews(main20News) 
-    
-     }
-    fetchData()
-  const intervalData = setInterval(fetchData , 24 * 60 * 60 *1000)
-  return () => clearInterval(intervalData);
-  },[])
- console.log(news)
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>An error occurred</div>;
 
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
-
-   {
-      news && news.map((cyrpto) =>(
+   {  data &&
+        data.articles.slice(0, 20).map((cyrpto) =>(
         <Link to={cyrpto.url} key={cyrpto.id} target="_blank" className="flex w-full gap-8 flex-col tablet:flex-row"> 
        
         <img src={cyrpto.urlToImage} className="tablet:max-w-[15rem] w-full" alt="" />

@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    search : null
-     
+    search : null,
+    searchKey: "AAPL"
 }
 
 const SearchSlice = createSlice({
@@ -10,7 +10,9 @@ const SearchSlice = createSlice({
     initialState,
     reducers:{
       searchSMA(state, action){
-        state.search = action.payload 
+        const {debaunce , data} = action.payload
+        state.search = data;
+        state.searchKey = debaunce
       }
       
     }

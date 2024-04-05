@@ -1,30 +1,17 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { useGetGoldNewsQuery } from '../reducers/NewsApi';
 
 const GoldNews = () => {
+  const {data , isLoading , error} = useGetGoldNewsQuery()
   
-  const [news ,setNews] = useState([])
- 
-   useEffect(()=>{
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>An error occurred</div>;
 
-      const fetchData = async() =>{
-       const {data}  = await axios.get(`https://newsapi.org/v2/everything?q=gold&apiKey=${import.meta.env.VITE_NEWS_API}`)
 
-       const main20News = data.articles.slice(0, 20)
-  
-       setNews(main20News) 
-      }
-     fetchData()
-   const intervalData = setInterval(fetchData ,24* 60 * 60 * 1000 )
-   return () => clearInterval(intervalData);
-   },[])
-
-  console.log(news)
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
     {
-        news && news.map((cyrpto) =>(
+       data && data.articles.map((cyrpto) =>(
           <Link to={cyrpto.url} key={cyrpto.id} target="_blank" className="flex w-full gap-8 flex-col tablet:flex-row"> 
          
           <img src={cyrpto.urlToImage} className="tablet:max-w-[15rem] w-full" alt="" />
