@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { LineChart } from "@mui/x-charts/LineChart";
 
-import {  useGetSearchQuery } from "../reducers/StockApi";
+import {  useGetSearchQuery, useGetSearchResultQuery } from "../reducers/StockApi";
 function Charts() {
-  const {search , searchKey} = useSelector((state) => state.searchItem);
+  const { searchKey} = useSelector((state) => state.searchItem);
 
   const [chartData, setChartData] = useState([]);
-  const { data, error, isLoading } = useGetSearchQuery(search);
+  const { data, error, isLoading } = useGetSearchQuery(searchKey);
+  const { data : result, } = useGetSearchResultQuery(searchKey);
   useEffect(() => {
     if (data && data.results && data.results.values) {
       const formattedData = data.results.values.map((item) => {
@@ -20,28 +21,32 @@ function Charts() {
       });
      setChartData(formattedData)
     }
+    
   }, [data]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>An error occurred</div>;
-
-
+  
+ console.log(result)
   const yAxisData = chartData?.reduce((acc, curr) => acc + curr.y, 0);
   return (
-    <div className="px-4">
-      <LineChart
+    <div className="px-4 flex flex-col justify-between w-full items-start tablet:flex-row gap-4">
+      <LineChart  
       
         yAxis={[{ min: Number( yAxisData / chartData.length) - 5 }]}
-        series={[{ data: chartData?.map((dataPoint) =>Number(dataPoint.y).toFixed(4)), label: searchKey, area: true, showMark: false }]}
+        series={[{ data: chartData?.map((dataPoint) =>Number(dataPoint.y).toFixed(4)), label: result?.resultsCount === 1 ? searchKey : "AAPL" , area: true, showMark: false }]}
         xAxis={[{ scaleType: 'point', data: chartData?.map((dataPoint) => dataPoint.x).reverse() }]}
-        width={500}
         height={300}
+        
         sx={{ 
         '.MuiLineElement-root': {
           display: 'none',
         },
       }}
       />
+      <div className="flex w-[80%]">
+       saclkasc
+      </div>
     </div>
   );
 }

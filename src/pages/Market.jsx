@@ -6,9 +6,10 @@ import { useGetAllStocksQuery } from "../reducers/StockApi";
 function Market() {
   const {data} = useGetAllStocksQuery()
   return (
-    <div>
+    <>
      <Charts/>
       <CurrencyNav />
+      <div className="flex w-full items-center gap-6 flex-col ">
       {data &&
         data.results.slice(0,200).map((stock) => (
           <StockMarket
@@ -22,8 +23,9 @@ function Market() {
             volumeWeight={stock.vw}
             />
         ))}
+      </div>
      
-    </div>
+    </>
   );
 }
 
