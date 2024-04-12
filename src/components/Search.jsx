@@ -20,7 +20,7 @@ function Search() {
   
      <form
       onSubmit={handleSubmit}
-      className="flex gap-4 items-center justify-between relative w-[90%]  mb-5"
+      className="flex gap-4 items-center justify-between relative w-[90%]  mb-5 mt-2"
     >
       <div className="flex items-center gap-2 flex-col w-[90%] bg-white">
         <div className="border-2  border-black px-4 py-4 rounded w-full flex items-center justify-between">

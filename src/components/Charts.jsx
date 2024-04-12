@@ -33,21 +33,25 @@ function Charts() {
   console.log(result);
   const yAxisData = chartData?.reduce((acc, curr) => acc + curr.y, 0);
   return (
-    <div className="px-4 flex flex-col justify-between w-full items-center tablet:items-start tablet:flex-row gap-4">
+    <div className="px-4 flex flex-col justify-between w-[95%] items-center tablet:items-start tablet:flex-row gap-4 ">
       <LineChart
         yAxis={[{ min: Number(yAxisData / chartData.length) - 5 }]}
         series={[
           {
             data: chartData?.map((dataPoint) => Number(dataPoint.y).toFixed(4)),
-            label: result?.resultsCount === 1 ? searchKey : "AAPL",
+            label: result?.resultsCount === 1 ? searchKey : "AAPL",  
+            showMark: true,
+            type: "line",
             area: true,
-            showMark: false,
+         
           },
         ]}
+        
         xAxis={[
           {
             scaleType: "point",
             data: chartData?.map((dataPoint) => dataPoint.x).reverse(),
+          
           },
         ]}
         height={300}
@@ -55,7 +59,37 @@ function Charts() {
           ".MuiLineElement-root": {
             display: "none",
           },
+          
+            //change left yAxis label styles
+          //  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel":{
+          //   strokeWidth:"0.7",
+          //   fill:"#ffffff"
+          //  },
+          //  // change all labels fontFamily shown on both xAxis and yAxis
+          //  "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":{
+          //      fontFamily: "Roboto",
+          //   },
+          //   // change bottom label styles
+          //   "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel":{
+          //       strokeWidth:"0.7",
+          //       fill:"#ffffff"
+          //    },
+          //     // bottomAxis Line Styles
+          //    "& .MuiChartsAxis-bottom .MuiChartsAxis-line":{
+          //     stroke:"#ffffff",
+          //     strokeWidth:0.7
+          //    },
+          //    // leftAxis Line Styles
+          //    "& .MuiChartsAxis-left .MuiChartsAxis-line":{
+          //     stroke:"#ffffff",
+          //     strokeWidth:0.8
+          //    },
+          //    ".MuiChartsLegend-series tspan":{
+          //     strokeWidth:"0.7",
+          //     fill:"#ffffff"
+          //    }
         }}
+      
       />
       <div className="flex w-[90%] items-center justify-center tablet:w-full">
         {result.results.map((stock) => (
@@ -65,7 +99,7 @@ function Charts() {
           >
             <header className={"flex  items-start w-full justify-between"}>
               <div className="w-full max-w-[15rem]">
-                <h2 className="text-[2rem] font-bold text-slate-950">
+                <h2 className="text-[2rem] font-bold text-slate-800">
                   {searchKey}
                 </h2>
                 <h4 className="flex text-xl  gap-1 font-semibold text-slate-400 flex-col tablet:flex-row tablet:items-center">
@@ -82,27 +116,27 @@ function Charts() {
                 </h4>
               </div>
               <div className="flex items-center">
-                {open - close > 0 ? (
+                {stock.c - stock.o  > 0 ? (
                   <div>
-                    <BiUpArrowAlt size={50} className="text-green-600" />
+                    <BiUpArrowAlt size={60} className="text-green-600" />
                     <span className="flex w-[5rem] gap-1 font-semibold">
                       {" "}
                       {Math.abs(
-                        Number(((stock.c - stock.o) / stock.o) * 100).toFixed(4)
-                      )}{" "}
+                        Number(((stock.c - stock.o) / stock.o) * 100)
+                      ).toFixed(4)}{" "}
                       <div>%</div>{" "}
                     </span>
                   </div>
-                ) : open - close === 0 ? (
+                ) : stock.c - stock.o === 0 ? (
                   ""
                 ) : (
                   <div>
-                    <BiDownArrowAlt size={50} className="text-red-600" />
+                    <BiDownArrowAlt size={60} className="text-red-600" />
                     <span className="flex w-[5rem] gap-1 font-semibold">
                       {" "}
                       {Math.abs(
-                        Number(((stock.c - stock.o) / stock.o) * 100).toFixed(4)
-                      )}{" "}
+                        Number(((stock.c - stock.o) / stock.o) * 100)
+                      ).toFixed(4)}{" "}
                       <div>%</div>{" "}
                     </span>
                   </div>
