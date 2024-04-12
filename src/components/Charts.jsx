@@ -30,7 +30,7 @@ function Charts() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>An error occurred</div>;
 
-  console.log(result);
+
   const yAxisData = chartData?.reduce((acc, curr) => acc + curr.y, 0);
   return (
     <div className="px-4 flex flex-col justify-between w-[95%] items-center tablet:items-start tablet:flex-row gap-4 ">
@@ -60,41 +60,13 @@ function Charts() {
             display: "none",
           },
           
-            //change left yAxis label styles
-          //  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel":{
-          //   strokeWidth:"0.7",
-          //   fill:"#ffffff"
-          //  },
-          //  // change all labels fontFamily shown on both xAxis and yAxis
-          //  "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":{
-          //      fontFamily: "Roboto",
-          //   },
-          //   // change bottom label styles
-          //   "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel":{
-          //       strokeWidth:"0.7",
-          //       fill:"#ffffff"
-          //    },
-          //     // bottomAxis Line Styles
-          //    "& .MuiChartsAxis-bottom .MuiChartsAxis-line":{
-          //     stroke:"#ffffff",
-          //     strokeWidth:0.7
-          //    },
-          //    // leftAxis Line Styles
-          //    "& .MuiChartsAxis-left .MuiChartsAxis-line":{
-          //     stroke:"#ffffff",
-          //     strokeWidth:0.8
-          //    },
-          //    ".MuiChartsLegend-series tspan":{
-          //     strokeWidth:"0.7",
-          //     fill:"#ffffff"
-          //    }
         }}
       
       />
       <div className="flex w-[90%] items-center justify-center tablet:w-full">
-        {result.results.map((stock) => (
+        {result && result.results.map((stock , i) => (
           <div
-            key={stock.id}
+            key={i}
             className="flex w-[90%] justify-start gap-4 items-start flex-col"
           >
             <header className={"flex  items-start w-full justify-between"}>

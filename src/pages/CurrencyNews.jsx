@@ -7,8 +7,8 @@ const CurrencyNews = () => {
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
   {
-      news && news.articles.slice(0,20).map((currency) =>(
-        <NewsCard key={currency.id} title={currency.title} description={currency.description} newsUrl={currency.url} image={currency.urlToImage} />
+      news && news.articles.slice(0,20).map((currency , i) =>(
+        <NewsCard key={i} title={currency.title} description={currency.description} newsUrl={currency.url} image={currency.urlToImage} />
       ))
      }
 

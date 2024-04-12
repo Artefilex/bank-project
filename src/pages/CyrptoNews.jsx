@@ -10,8 +10,8 @@ const CyrptoNews = () => {
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
       {data &&
-        data.articles.slice(0, 20).map((cyrpto) => (
-          <NewsCard key={cyrpto.id} title={cyrpto.title} description={cyrpto.description} newsUrl={cyrpto.url} image={cyrpto.urlToImage} />
+        data.articles.slice(0, 20).map((cyrpto , i) => (
+          <NewsCard key={i} title={cyrpto.title} description={cyrpto.description} newsUrl={cyrpto.url} image={cyrpto.urlToImage} />
         ))}
     </div>
   );

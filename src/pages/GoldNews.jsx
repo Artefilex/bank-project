@@ -12,8 +12,8 @@ const GoldNews = () => {
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
     {
-       data && data.articles.map((gold) =>(
-        <NewsCard key={gold.id} title={gold.title} description={gold.description} newsUrl={gold.url} image={gold.urlToImage} />
+       data && data.articles.map((gold , i ) =>(
+        <NewsCard key={i} title={gold.title} description={gold.description} newsUrl={gold.url} image={gold.urlToImage} />
         ))
        }
   

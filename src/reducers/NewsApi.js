@@ -20,7 +20,7 @@ export const NewsApi = createApi({
             query:() => `everything?q=gold&apiKey=${import.meta.env.VITE_NEWS_API}`
         }),
         getCountryNews: builder.query({
-            query: () => `top-headlines?country=tr&apiKey=${import.meta.env.VITE_NEWS_API}` 
+            query: () => `top-headlines?country=us&apiKey=${import.meta.env.VITE_NEWS_API}` 
         })
     })
 })
