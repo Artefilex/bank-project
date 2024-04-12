@@ -7,6 +7,8 @@ import {
   useGetSearchResultQuery,
 } from "../reducers/StockApi";
 import ListItem from "./ListItem";
+import Error from "./Errors";
+import Loading from "./LoadingPage";
 function Charts() {
   const { searchKey } = useSelector((state) => state.searchItem);
 
@@ -26,9 +28,9 @@ function Charts() {
       setChartData(formattedData);
     }
   }, [data]);
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>An error occurred</div>;
+ 
+ if ( error) return  <Error status={error?.status} message={"You've exceeded the maximum requests per minute, please wait"}/>
+ if (isLoading) return <Loading/>
 
 
   const yAxisData = chartData?.reduce((acc, curr) => acc + curr.y, 0);
@@ -64,7 +66,7 @@ function Charts() {
       
       />
       <div className="flex w-[90%] items-center justify-center tablet:w-full">
-        {result && result.results.map((stock , i) => (
+        {result && result?.results?.map((stock , i) => (
           <div
             key={i}
             className="flex w-[90%] justify-start gap-4 items-start flex-col"

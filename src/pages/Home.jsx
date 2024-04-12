@@ -1,17 +1,20 @@
 import Charts from "../components/Charts"
 import NewsCard from "../components/NewsCard";
 import Search from "../components/Search";
+import Error from "../components/Errors";
+import Loading from "../components/LoadingPage";
 import { useGetCountryNewsQuery } from "../reducers/NewsApi";
 
 function Home() {
   const {data , isLoading , error} = useGetCountryNewsQuery()
   
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>An error occurred</div>;
+  if ( error) return  <Error  status={error.status} message={error.message}/>
+  if (isLoading) return <Loading/>
  
- console.log(data.articles)
+
   return <div className="flex items-center flex-col justify-center w-[90%] ">
   <Charts/>
+  
   <Search/>
   
       {data &&

@@ -4,9 +4,13 @@ import StockMarket from "../components/StockMarket";
 import Charts from "../components/Charts";
 import { useGetAllStocksQuery } from "../reducers/StockApi";
 import Search from "../components/Search";
+import Error from "../components/Errors";
+import Loading from "../components/LoadingPage";
 function Market() {
-  const {data} = useGetAllStocksQuery()
- 
+  const {data , error , isLoading} = useGetAllStocksQuery()
+  console.log(error)
+  if ( error) return  <Error status={error.status} message={error.data.error}/>
+  if (isLoading) return <Loading/>
   return (
     <>
      <Charts/>

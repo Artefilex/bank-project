@@ -1,12 +1,14 @@
 
 import { useGetEmtiaNewsQuery } from '../reducers/NewsApi'
 import NewsCard from '../components/NewsCard';
+import Error from '../components/Errors';
+import Loading from '../components/LoadingPage';
 const EmtiaNews = () => {
   const {data , isLoading , error} = useGetEmtiaNewsQuery()
   
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>An error occurred</div>;
+  if ( error) return  <Error  status={error.status} message={error.message}/>
+  if (isLoading) return <Loading/>
 
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">

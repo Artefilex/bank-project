@@ -1,12 +1,14 @@
 
 import { useGetCyrptoNewsQuery } from "../reducers/NewsApi";
 import NewsCard from "../components/NewsCard";
+import Loading from "../components/LoadingPage";
+import Error from "../components/Errors";
 
 const CyrptoNews = () => {
   const { data, isLoading, error } = useGetCyrptoNewsQuery();
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>An error occurred</div>;
+ 
+  if ( error) return  <Error  status={error.status} message={error.message}/>
+  if (isLoading) return <Loading/>
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
       {data &&
