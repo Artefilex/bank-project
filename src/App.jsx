@@ -8,8 +8,8 @@ import ExchangeNews from "./pages/ExchangeNews"
 import Credit from "./pages/Credit";
 import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer"
-import CurrencyNav from "./layouts/CurrencyNav";
 import Market from "./pages/Market";
+import ErrorPage from "./pages/ErrorPage";
 function App() {
   return (
     <div className="flex items-center justify-start flex-col w-full h-full min-h-[100vh] ">
@@ -26,7 +26,7 @@ function App() {
           <Route path="/cyrpto" element={<CyrptoNews />} />
           <Route path="/exchange" element={<ExchangeNews />} />
           <Route path="/credit" element={<Credit />}></Route>
- 
+          <Route path="*" element={<ErrorPage status={404} message={"Page is Not defined"} />}></Route>
         </Routes>
         <Footer/>
       </Router>
