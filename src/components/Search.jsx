@@ -17,10 +17,10 @@ function Search() {
     setSearch("");
   };
   return (
-   <div  className="flex gap-4 items-center justify-between relative w-[90%] mb-20 ">
+  
      <form
       onSubmit={handleSubmit}
-      className="flex gap-4 items-center justify-between fixed w-[75%] pt-8  "
+      className="flex gap-4 items-center justify-between relative w-[90%]  mb-5"
     >
       <div className="flex items-center gap-2 flex-col w-[90%] bg-white">
         <div className="border-2  border-black px-4 py-4 rounded w-full flex items-center justify-between">
@@ -61,7 +61,7 @@ function Search() {
         <IoMdSearch size={40} />{" "}
       </button>
     </form>
-   </div>
+  
   );
 }
 
