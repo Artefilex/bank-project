@@ -10,13 +10,16 @@ import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer"
 import Market from "./pages/Market";
 import ErrorPage from "./pages/ErrorPage";
+import CurrencyNav from "./layouts/CurrencyNav";
 function App() {
+  
   return (
     <div className="flex items-center justify-start flex-col w-full h-full min-h-[100vh] ">
     <div className="flex items-center justify-start flex-col w-full max-w-[1280px]">
     <Router>
       <Navbar/>
-      {/* <CurrencyNav/> */}
+
+      <CurrencyNav/>
         <Routes>
           <Route path="/" exact element={<Home/>} />
           <Route path="/currency" element={<CurrencyNews />} />

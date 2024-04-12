@@ -12,7 +12,7 @@ function Navbar() {
  {
     isMobile ? ( <div className="flex items-center justify-between w-full relative">
    
-    <Link to="/"> <img src={logo} alt="" className="w-[8rem]" /></Link>
+    <Link to="/"> <img src={logo} alt="" className="w-[8rem] pl-2" /></Link>
     <button className="pr-4" onClick={() => setShowMenu(!showMenu)}> {showMenu ?  <IoMdClose /> :<IoMdMenu />  } </button>
     {
         showMenu &&   <nav className="w-full top-14 xtablet:max-w-[10rem] flex items-start font-bold text-gray-800 px-5 py-2 bg-slate-50 flex-col justify-around absolute xtablet:top-10 xtablet:right-8 xtablet:rounded-lg xtablet:rounded-tr-none border xtablet:border-gray-400 border-b-gray-400  text-[1.2rem]">
