@@ -9,30 +9,35 @@ const Converter = () => {
     firstInput: "",
     secondInput: "1",
     firstOption: "TRY",
-    secondOption: "USD",
+    secondOption: "AUD",
   });
   const [flags, setFlags] = useState({});
 
   useEffect(() => {
-    const fetchFlags = async () => {
+    const fetchCurrenciesAndFlags = async () => {
       try {
         const { data } = await axios.get('https://restcountries.com/v3.1/all');
-        const flagsDictionary = {};
+        const currenciesDictionary = {};
         data.forEach(country => {
           Object.keys(country.currencies || {}).forEach(currencyCode => {
-            if (!flagsDictionary[currencyCode]) {
-              flagsDictionary[currencyCode] = country.flags.svg;
+            if (!currenciesDictionary[currencyCode]) {
+              currenciesDictionary[currencyCode] = {
+                flagUrl: country.flags.svg,  // Bayrak URL'si
+                currencyName: country.currencies[currencyCode].name,  // Para biriminin adı
+                currencySymbol: country.currencies[currencyCode].symbol  // Para biriminin sembolü
+              };
             }
           });
         });
-        setFlags(flagsDictionary);
+        setFlags(currenciesDictionary);
       } catch (error) {
-        console.error('Error fetching flags:', error);
+        console.error('Error fetching currency and flag data:', error);
       }
     };
-    fetchFlags();
-  }, []);
 
+    fetchCurrenciesAndFlags();
+  }, []);
+   console.log(flags)
   useEffect(() => {
     const fetchCurrency = async () => {
       const { data } = await axios.get("https://open.er-api.com/v6/latest/TRY");
@@ -48,7 +53,7 @@ const Converter = () => {
     const rate2 = currency[form.firstOption] * (Number(form.secondInput) || 0);
     const convert = rate2 / (rate || 1);
 
-    const convertedValue = convert.toFixed(2);
+    const convertedValue = convert.toFixed(4);
 
     setForm((prevState) => ({
       ...prevState,
@@ -75,30 +80,31 @@ const Converter = () => {
       className="flex flex-col items-center w-full justify-between  tablet:w-[90%] gap-4 "
     >
       <div className="flex flex-row max-w w-[20rem] justify-between items-center ">
-        <Dropdown
-  options={Object.keys(currency).filter((item) => item !== "TRY").map((item) => ({
-    value: item,
-    label: item,
-    flag: flags[item] || ''
+      <Dropdown
+          options={Object.keys(currency).map((item) => ({
+          value: item,
+          label: item,
+         flag: flags[item] || ''
   }))}
-  value={form.firstOption}
+  value={form.secondOption}
   onChange={handelChange}
   name="secondOption"
-
-/>
-        <FaArrowRight size={30} />
+        currencieValue={form.secondInput}
+/>  
+<FaArrowRight size={30} />
         <Dropdown
-  options={Object.keys(currency).map((item) => ({
-    value: item,
-    label: item,
-    flag: flags[item] || ''
+         options={Object.keys(currency).map((item) => ({
+        value: item,
+        label: item,
+        flag: flags[item] || ''
   }))}
   value={form.firstOption}
   onChange={handelChange}
   name="firstOption"
-
+  currencieValue={Number(form.firstInput).toFixed(2)}
 />
-      
+       
+
       </div>
       <div className="flex flex-row max-w w-[20rem] justify-between items-center gap-5 ">
         <input
