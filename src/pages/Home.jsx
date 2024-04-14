@@ -1,10 +1,10 @@
-import Charts from "../components/Charts"
+// import Charts from "../components/Charts"
 import NewsCard from "../components/NewsCard";
-import Search from "../components/Search";
+// import Search from "../components/Search";
 import Error from "../components/Errors";
 import Loading from "../components/LoadingPage";
 import { useGetCountryNewsQuery } from "../reducers/NewsApi";
-import Converter from "../components/Converter";
+// import Converter from "../components/Converter";
 
 function Home() {
   const {data , isLoading , error} = useGetCountryNewsQuery()
@@ -14,9 +14,9 @@ function Home() {
  
 
   return <div className="flex items-center flex-col justify-center w-[90%] ">
-       <Converter/>
-  <Charts/>
-  <Search/>
+       {/* <Converter/> */}
+  {/* <Charts/>
+  <Search/> */}
   
       {data &&
         data.articles.slice(0, 20).map((cyrpto , i) => (
