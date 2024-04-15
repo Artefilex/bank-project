@@ -1,5 +1,5 @@
 
-import { useGetEmtiaNewsQuery } from '../reducers/NewsApi'
+import { useGetEmtiaNewsQuery } from "../reducers/FinnHubApi"
 import NewsCard from '../components/NewsCard';
 import Error from '../components/Errors';
 import Loading from '../components/LoadingPage';
@@ -13,10 +13,9 @@ const EmtiaNews = () => {
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
    {  data &&
-        data.articles.slice(0, 20).map((cyrpto ,i ) =>(
-       <NewsCard key={i} title={cyrpto.title} description={cyrpto.description} newsUrl={cyrpto.url} image={cyrpto.urlToImage} />
-      ))
-     }
+      data?.slice(0,50)?.map((news , i) => (
+        <NewsCard key={i} title={news.headline} description={news.summary} newsUrl={news.url} image={news.image} />
+      ))}
 
     </div>
     
