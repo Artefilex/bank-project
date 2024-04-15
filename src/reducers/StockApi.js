@@ -15,14 +15,14 @@ export const StockApi = createApi({
         }    
       }),
       getSearch: builder.query({
-        query: (searchKey) => `v1/indicators/sma/${searchKey || "AAPL"}?timespan=day&adjusted=true&window=50&series_type=close&order=desc&apiKey=${import.meta.env.VITE_EXCHANGE_API}`,
+        query: (searchKey) => `v1/indicators/sma/${searchKey}?timespan=day&adjusted=true&window=50&series_type=close&order=desc&apiKey=${import.meta.env.VITE_EXCHANGE_API}`,
       }),
       getSearchResult: builder.query({
-        query: (debouncedUpperCase) => {
+        query: (searchKey) => {
           const today = new Date();
-          today.setDate(today.getDate() - 1);
+          today.setDate(today.getDate() - 2);
           const todayStr = today.toISOString().split('T')[0];
-          return `v2/aggs/ticker/${debouncedUpperCase || "AAPL"}/range/1/day/${todayStr}/${todayStr}?adjusted=true&sort=asc&limit=120&apiKey=${import.meta.env.VITE_EXCHANGE_API}`
+          return `v2/aggs/ticker/${searchKey}/range/1/day/${todayStr}/${todayStr}?adjusted=true&sort=asc&limit=120&apiKey=${import.meta.env.VITE_EXCHANGE_API}`
         }
       })  
       }),

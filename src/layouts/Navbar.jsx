@@ -37,7 +37,7 @@ const navigation = [
 ]
 function Navbar() {
     const [showMenu , setShowMenu] = useState(false)
-    const [converterShow , setConverterShow] = useState(true)
+    const [converterShow , setConverterShow] = useState(false)
     const {isMobile} = useResize()
   return (
  <>

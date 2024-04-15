@@ -13,8 +13,8 @@ function Charts() {
   const { searchKey } = useSelector((state) => state.searchItem);
 
   const [chartData, setChartData] = useState([]);
-  const { data, error, isLoading } = useGetSearchQuery(searchKey);
-  const { data: result } = useGetSearchResultQuery(searchKey);
+  const { data, error, isLoading } = useGetSearchQuery(searchKey || "AAPL");
+  const { data: result } = useGetSearchResultQuery(searchKey || "AAPL");
   useEffect(() => {
     if (data && data.results && data.results.values) {
       const formattedData = data.results.values.map((item) => {
@@ -28,20 +28,20 @@ function Charts() {
       setChartData(formattedData);
     }
   }, [data]);
- 
+
  if ( error) return  <Error status={error?.status} message={"You've exceeded the maximum requests per minute, please wait"}/>
  if (isLoading) return <Loading/>
 
 
   const yAxisData = chartData?.reduce((acc, curr) => acc + curr.y, 0);
   return (
-    <div className="px-4 flex flex-col justify-between w-[95%] items-center tablet:items-start tablet:flex-row gap-4 ">
+    <div className="px-4 flex flex-col justify-between w-[95%] items-center tablet:items-start tablet:flex-row gap-4 mt-5">
       <LineChart
         yAxis={[{ min: Number(yAxisData / chartData.length) - 5 }]}
         series={[
           {
             data: chartData?.map((dataPoint) => Number(dataPoint.y).toFixed(4)),
-            label: result?.resultsCount === 1 ? searchKey : "AAPL",  
+            label:  searchKey || "AAPL",  
             showMark: true,
             type: "line",
             area: true,
