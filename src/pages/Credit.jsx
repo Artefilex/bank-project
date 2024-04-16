@@ -57,19 +57,19 @@ const Credit = () => {
         </button>
       </form>
 
-      {data && data.central_bank_rates.map((bank) => {
-        const matchingBank = BankData.find(item => item.bankName === bank.central_bank);
+      {data && currency && data?.central_bank_rates?.map((bank) => {
+        const matchingBank = BankData?.find(item => item.bankName === bank.central_bank);
       
         if (matchingBank) {
           return (
             <BankInterestCard
-              key={matchingBank.bankName}
-              centralBank={matchingBank.bankName}
+              key={matchingBank?.bankName}
+              centralBank={matchingBank?.bankName}
               ratePct={bank.rate_pct}
-              url={matchingBank.img}
+              url={matchingBank?.img}
               mevduat={mevduat}
-               rate = {currency[matchingBank.rate]}
-               rateSymbol = {matchingBank.rateSymbol}
+               rate = {currency[matchingBank?.rate]}
+               rateSymbol = {matchingBank?.rateSymbol}
             />
           );
         }

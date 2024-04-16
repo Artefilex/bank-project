@@ -2,29 +2,69 @@ import { createApi ,fetchBaseQuery  } from "@reduxjs/toolkit/query/react";
 
 export const NewsApi = createApi({
     reducerPath: "NewsApi",
-    baseQuery: fetchBaseQuery({baseUrl: `https://newsapi.org/v2/`}),
+    baseQuery: fetchBaseQuery({baseUrl: `https://real-time-finance-data.p.rapidapi.com/`}),
+    params: {
+
+    },
     endpoints: (builder) =>({
         getCurrenyNews: builder.query({
-            query: () => `everything?q=currency&apiKey=${import.meta.env.VITE_NEWS_API}`
+            query: () => {
+                const options = {
+                    url: 'currency-news',
+                    params: {
+                        from_symbol: 'USD',
+                        to_symbol: 'BTC',
+                        language: 'en'
+                      },
+                      headers: {
+                        'X-RapidAPI-Key': `${import.meta.env.VITE_REALTIME_FINANCE}`,
+                        'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com'
+                      }
+                    }
+                
+                return options
+                }
         }),
         getCyrptoNews: builder.query({
-            query: ()=>`everything?q=crypto&apiKey=${import.meta.env.VITE_NEWS_API}`
+            query: () => {
+                const options = {
+                    url: 'currency-news',
+                    params: {
+                        from_symbol: 'USD',
+                        to_symbol: 'BTC',
+                        language: 'en'
+                      },
+                      headers: {
+                        'X-RapidAPI-Key': `${import.meta.env.VITE_REALTIME_FINANCE}`,
+                        'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com'
+                      }
+                    }
+                
+                return options
+                }
         }),
-        getEmtiaNews :builder.query({
-            query: () => `everything?q=commodity&apiKey=${import.meta.env.VITE_NEWS_API}`
-        }),
+        
         getExchangeNews: builder.query({
-            query: () => `everything?q=exchange&apiKey=${import.meta.env.VITE_NEWS_API}` 
+            query: () =>{
+                const options = {
+                    method: 'GET',
+                    url: 'stock-news',
+                    params: {
+                      symbol: 'GS:NYSE',
+                      language: 'en'
+                    },
+                    headers: {
+                      'X-RapidAPI-Key': `${import.meta.env.VITE_REALTIME_FINANCE}` ,
+                      'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com'
+                    }
+                  };
+                  return options
+            } 
         }),
-        getGoldNews: builder.query({
-            query:() => `everything?q=gold&apiKey=${import.meta.env.VITE_NEWS_API}`
-        }),
-        getCountryNews: builder.query({
-            query: () => `top-headlines?country=us&apiKey=${import.meta.env.VITE_NEWS_API}` 
-        })
+      
     })
 })
 
-export const {useGetCurrenyNewsQuery, useGetCyrptoNewsQuery, useGetEmtiaNewsQuery, useGetExchangeNewsQuery, useGetGoldNewsQuery , useGetCountryNewsQuery} = NewsApi
+export const {useGetCurrenyNewsQuery, useGetCyrptoNewsQuery,  useGetExchangeNewsQuery,} = NewsApi
 
 

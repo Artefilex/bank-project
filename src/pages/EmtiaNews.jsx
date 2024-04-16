@@ -1,10 +1,10 @@
 
-import { useGetEmtiaNewsQuery } from "../reducers/FinnHubApi"
+import { useGetEnergyNewsQuery } from "../reducers/News2Api"
 import NewsCard from '../components/NewsCard';
 import Error from '../components/Errors';
 import Loading from '../components/LoadingPage';
 const EmtiaNews = () => {
-  const {data , isLoading , error} = useGetEmtiaNewsQuery()
+  const {data : energyNews , isLoading , error} = useGetEnergyNewsQuery()
   
 
   if ( error) return  <Error  status={error.status} message={error.message}/>
@@ -12,10 +12,11 @@ const EmtiaNews = () => {
 
   return (
     <div className="flex w-[90%] flex-col  items-start justify-center gap-4">
-   {  data &&
-      data?.slice(0,50)?.map((news , i) => (
-        <NewsCard key={i} title={news.headline} description={news.summary} newsUrl={news.url} image={news.image} />
-      ))}
+ {
+      energyNews && energyNews.map((gold , i) =>(
+        <NewsCard key={i} title={gold.title} description={gold.body} newsUrl={gold.url} image={gold?.img?.w} />
+      ))
+     }  
 
     </div>
     

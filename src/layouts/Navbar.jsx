@@ -5,7 +5,8 @@ import { IoMdClose , IoMdMenu  } from "react-icons/io";
 import { FcCurrencyExchange } from "react-icons/fc";
 import { useState } from "react";
 import Converter from "../components/Converter";
-
+import { useLocation } from 'react-router-dom';
+import { useEffect } from "react";
 const navigation = [
   {
     label: "Currency",
@@ -16,8 +17,8 @@ const navigation = [
     rotation: "/gold"
   },
   {
-    label: "Commodity",
-    rotation: "/emtia"
+    label: "Energy",
+    rotation: "/energy"
   },
   {
     label: "Cyrpto",
@@ -38,18 +39,27 @@ const navigation = [
 function Navbar() {
     const [showMenu , setShowMenu] = useState(false)
     const [converterShow , setConverterShow] = useState(false)
+    const location = useLocation();
+    const [hide ,setHide] = useState(false)
+   useEffect(()=>{
+    if(location.pathname === "/market"){
+      setHide(true)
+    }else{
+      setHide(false)
+    }
+   },[location.pathname])    
     const {isMobile} = useResize()
   return (
  <>
  {
-    isMobile ? ( <div className="flex items-center justify-between w-full relative">
+    isMobile ? ( <div className="flex items-center justify-between w-full relative z-50">
    
     <Link to="/"> <img src={logo} alt="" className="w-[8rem] pl-2" /></Link>
     <div className="flex items-center justify-center gap-4">
-    <button onClick={() =>{
+   { !hide && <button onClick={() =>{
        setShowMenu(false);
        setConverterShow(!converterShow)
-    }}><FcCurrencyExchange size={20}  /> </button>
+    }}><FcCurrencyExchange size={20}  /> </button>}
     <button className="pr-4 " onClick={() => {
       setShowMenu(!showMenu);
       setConverterShow(false)
@@ -57,7 +67,7 @@ function Navbar() {
     </div>
     
     {
-        showMenu &&   <nav className="w-full top-14 xtablet:max-w-[10rem] flex items-start font-bold text-gray-800 px-5 py-2 bg-slate-50 flex-col justify-around absolute xtablet:top-10 xtablet:right-8 xtablet:rounded-lg xtablet:rounded-tr-none border xtablet:border-gray-400 border-b-gray-400  text-[1.2rem] z-20">
+        showMenu &&   <nav className="w-full top-14 xtablet:max-w-[10rem] flex items-start font-bold text-gray-800 px-5 py-2 bg-slate-50 flex-col justify-around absolute xtablet:top-10 xtablet:right-8 xtablet:rounded-lg xtablet:rounded-tr-none border xtablet:border-gray-400 border-b-gray-400  text-[1.2rem]">
            { navigation.map((item) =>(
           <Link  key={item.label} className="hover:text-slate-500 transition-colors duration-200" to={item.rotation}>{item.label}</Link>
        ))}
@@ -71,10 +81,9 @@ function Navbar() {
           <Link  key={item.label} className="hover:text-slate-500 transition-colors duration-200" to={item.rotation}>{item.label}</Link>
        ))
        } 
-       <button onClick={() =>{
-      //  setShowMenu(false);
+     { !hide && <button onClick={() =>{
        setConverterShow(!converterShow)
-    }}><FcCurrencyExchange size={20}  /> </button>
+    }}><FcCurrencyExchange size={20}  /> </button>}
       </nav>
   </div>)
  }

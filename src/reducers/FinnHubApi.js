@@ -11,7 +11,7 @@ export const FinnHubApi = createApi({
             query: () => `news?category=currency&token=${import.meta.env.VITE_FINNHUB_API}`
           }),
           getCyrptoNews: builder.query({
-            query: () => `news?category=crypto&token=${import.meta.env.VITE_FINNHUB_API}`
+            query: () => `news?category=cyrpto&token=${import.meta.env.VITE_FINNHUB_API}`
         }),
         getEmtiaNews :builder.query({
             query: () => `news?category=commodity&token=${import.meta.env.VITE_FINNHUB_API}`

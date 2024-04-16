@@ -24,7 +24,7 @@ function App() {
           <Route path="/" exact element={<Home/>} />
           <Route path="/currency" element={<CurrencyNews />} />
           <Route path="/gold" element={<GoldNews />} />
-          <Route path="/emtia" element={<EmtiaNews />} />
+          <Route path="/energy" element={<EmtiaNews />} />
           <Route path="/market" element={<Market/>}/>
           <Route path="/cyrpto" element={<CyrptoNews />} />
           <Route path="/exchange" element={<ExchangeNews />} />

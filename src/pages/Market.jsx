@@ -8,7 +8,7 @@ import Error from "../components/Errors";
 import Loading from "../components/LoadingPage";
 function Market() {
   const {data , error , isLoading} = useGetAllStocksQuery()
-
+console.log(data)
   if ( error) return  <Error status={error.status} message={error.data.error}/>
   if (isLoading) return <Loading/>
   return (
@@ -17,7 +17,7 @@ function Market() {
       <Search />
       <div className="flex w-full items-center gap-6 flex-col ">
       {data &&
-        data?.results?.slice(0,400).map((stock , i) => (
+        data?.results?.slice(0,400)?.map((stock , i) => (
           <StockMarket
             key={i}
             title={stock.T}

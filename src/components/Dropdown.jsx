@@ -26,7 +26,7 @@ const [filter , setFilter] = useState(value)
        
       </div>
       {isOpen && (
-        <ul className="absolute z-10 w-full bg-gray-200 border mt-1 max-h-60 overflow-auto">
+        <ul className="absolute w-full bg-gray-200 border mt-1 max-h-60 overflow-auto">
           {filteredOptions.map((option, key) => (
             <li
               key={key}

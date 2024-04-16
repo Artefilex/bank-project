@@ -1,18 +1,75 @@
-import { createApi ,fetchBaseQuery  } from "@reduxjs/toolkit/query/react";
-
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const News2Api = createApi({
-    reducerPath:"News2Api",
-    baseQuery: fetchBaseQuery({baseUrl: `https://gnews.io/api/v4/top-headlines?category=`}),
-       
-    endpoints: (builder) =>({
-        getNews: builder.query({
-            query: () => `general&lang=en&country=us&max=10&apikey=${import.meta.env.VITE_NEWS_API_OTHER}`
-        }),
+  reducerPath: "News2Api",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://biztoc.p.rapidapi.com/" }),
+
+  endpoints: (builder) => ({
+    getCurrencies: builder.query({
+      query: () => {
+        const options = {
+          url: "search",
+          params: { q: "currency" },
+          headers: {
+            "X-RapidAPI-Key":`${import.meta.env.VITE_REALTIME_FINANCE}`,
+              "X-RapidAPI-Host": "biztoc.p.rapidapi.com",
+          },
+        };
+
+        return options;
+      },
+    
+
+    }),
+    getGoldNews: builder.query({
+        query: () => {
+          const options = {
+            url: "search",
+            params: { q: "XAU" },
+            headers: {
+                "X-RapidAPI-Key":`${import.meta.env.VITE_REALTIME_FINANCE}`,
+                "X-RapidAPI-Host": "biztoc.p.rapidapi.com",
+            },
+          };
   
-       
-    })
-})
+          return options;
+        },
+      
+  
+      }),
+      getBtcNews: builder.query({
+        query: () => {
+          const options = {
+            url: "search",
+            params: { q: "BTC" },
+            headers: {
+                "X-RapidAPI-Key":`${import.meta.env.VITE_REALTIME_FINANCE}`,
+                "X-RapidAPI-Host": "biztoc.p.rapidapi.com",
+            },
+          };
+  
+          return options;
+        },
+      
+  
+      }),  
+      getEnergyNews: builder.query({
+        query: () => {
+          const options = {
+            url: "search",
+            params: { q: "energy" },
+            headers: {
+              "X-RapidAPI-Key":`${import.meta.env.VITE_REALTIME_FINANCE}`,
+              "X-RapidAPI-Host": "biztoc.p.rapidapi.com",
+            },
+          };
+  
+          return options;
+        },
+      
+  
+      }),  
+  }),
+});
 
-export const {useGetNewsQuery , useGetGeneralQuery} = News2Api
-
+export const { useGetCurrenciesQuery , useGetGoldNewsQuery , useGetBtcNewsQuery , useGetEnergyNewsQuery } = News2Api;
