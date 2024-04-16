@@ -68,8 +68,22 @@ export const News2Api = createApi({
         },
       
   
-      }),  
+      }), 
+     getAllNews: builder.query({
+        query: () =>{
+            const options = {
+                method: 'GET',
+                url: 'news/latest',
+                headers: {
+                  "X-RapidAPI-Key":`${import.meta.env.VITE_REALTIME_FINANCE}`,
+                  'X-RapidAPI-Host': 'biztoc.p.rapidapi.com'
+                }
+              };
+              
+              return options
+        }
+     })  
   }),
 });
 
-export const { useGetCurrenciesQuery , useGetGoldNewsQuery , useGetBtcNewsQuery , useGetEnergyNewsQuery } = News2Api;
+export const { useGetCurrenciesQuery , useGetGoldNewsQuery , useGetBtcNewsQuery , useGetEnergyNewsQuery , useGetAllNewsQuery } = News2Api;

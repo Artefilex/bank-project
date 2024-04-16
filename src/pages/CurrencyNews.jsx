@@ -6,7 +6,7 @@ import Loading from '../components/LoadingPage'
 const CurrencyNews = () => {
   const {data :currencies ,error ,isLoading} = useGetCurrenciesQuery()
   
-  console.log(currencies)
+  
    if ( error) return  <Error status={error.status} message={error.message}/>
    if (isLoading) return <Loading/>
   return (
