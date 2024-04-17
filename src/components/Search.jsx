@@ -17,8 +17,7 @@ function Search() {
     setSearch("");
   };
   return (
-  
-     <form
+    <form
       onSubmit={handleSubmit}
       className="flex gap-4 items-center justify-between relative w-[90%]  mb-5 mt-2"
     >
@@ -35,7 +34,6 @@ function Search() {
             className="text-slate-900 w-[7rem] flex items-center justify-end"
             onClick={() => setShowStock(!showStock)}
           >
-            {" "}
             {showStock ? <FaCircleArrowUp /> : <FaCircleArrowDown />}
           </button>
         </div>
@@ -49,19 +47,17 @@ function Search() {
                   setSearch(stock.value);
                   setShowStock(false);
                 }}
-              >
-                {" "}
-                {stock.label}{" "}
+              > 
+                {stock.label}
               </div>
             ))}
           </div>
         )}
       </div>
       <button type="submit" className=" text-slate-800">
-        <IoMdSearch size={40} />{" "}
+        <IoMdSearch size={40} />
       </button>
     </form>
-  
   );
 }
 

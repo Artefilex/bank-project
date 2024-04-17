@@ -8,27 +8,25 @@ export const StockSearchApi = createApi({
     getStocSearchkData: builder.query({
       query: (searchKey) => {
         const today = new Date();
-        today.setDate(today.getDate()- 1);
-        const todayStr = today.toISOString().split('T')[0];
+        today.setDate(today.getDate() - 1);
+        const todayStr = today.toISOString().split("T")[0];
         const options = {
-            url: "daily",
-            params: {
-                symbol: `${searchKey}`,
-                dateStart: `${todayStr}`,
-                dateEnd: `${todayStr}`
-              },
+          url: "daily",
+          params: {
+            symbol: `${searchKey}`,
+            dateStart: `${todayStr}`,
+            dateEnd: `${todayStr}`,
+          },
           headers: {
-            "X-RapidAPI-Key":`${import.meta.env.VITE_REALTIME_FINANCE}`,
-            'X-RapidAPI-Host': 'apistocks.p.rapidapi.com'
+            "X-RapidAPI-Key": `${import.meta.env.VITE_REALTIME_FINANCE}`,
+            "X-RapidAPI-Host": "apistocks.p.rapidapi.com",
           },
         };
 
         return options;
       },
-    
-
     }),
   }),
 });
 
-export const {useGetStocSearchkDataQuery} = StockSearchApi
+export const { useGetStocSearchkDataQuery } = StockSearchApi;

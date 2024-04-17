@@ -15,9 +15,9 @@ export const StockDataApi = createApi({
             page: `${page}`,
           },
           headers: {
-            "X-RapidAPI-Key":`${import.meta.env.VITE_REALTIME_FINANCE}`,
-            'X-RapidAPI-Host': 'mboum-finance.p.rapidapi.com'
-          }
+            "X-RapidAPI-Key": `${import.meta.env.VITE_REALTIME_FINANCE}`,
+            "X-RapidAPI-Host": "mboum-finance.p.rapidapi.com",
+          },
         };
 
         return options;
@@ -26,6 +26,4 @@ export const StockDataApi = createApi({
   }),
 });
 
-export const {
-  useGetAllStocksQuery
-} = StockDataApi;
+export const { useGetAllStocksQuery } = StockDataApi;

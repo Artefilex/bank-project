@@ -11,16 +11,15 @@ function StockMarket({ title, companySymbol, netchange, pctchange, lastSale }) {
         </h4>
       </header>
 
-      
-        <ul className="flex justify-between items-center w-full gap-4 text-xl font-semibold  ">
-          <ListItem title="Net Change" value={netchange} />
-          <ListItem title="Percent Change" value={pctchange} />
-          <ListItem title="Last Sale" value={lastSale} />
-          <div className="flex items-center">
-          {  Number(netchange) > 0 ? (
-            <div>       
+      <ul className="flex justify-between items-center w-full gap-4 text-xl font-semibold  ">
+        <ListItem title="Net Change" value={netchange} />
+        <ListItem title="Percent Change" value={pctchange} />
+        <ListItem title="Last Sale" value={lastSale} />
+        <div className="flex items-center">
+          {Number(netchange) > 0 ? (
+            <div>
               <BiUpArrowAlt size={50} className="text-green-600" />
-              <span className="flex w-[5rem] gap-1 font-semibold">       
+              <span className="flex w-[5rem] gap-1 font-semibold">
                 {Number(netchange)} <div>%</div>
               </span>
             </div>
@@ -29,16 +28,14 @@ function StockMarket({ title, companySymbol, netchange, pctchange, lastSale }) {
           ) : (
             <div>
               <BiDownArrowAlt size={50} className="text-red-600" />
-              <span className="flex w-[5rem] gap-1 font-semibold">   
-             
+              <span className="flex w-[5rem] gap-1 font-semibold">
                 {Number(netchange)}
                 <div>%</div>
               </span>
             </div>
           )}
         </div>
-        </ul>
-  
+      </ul>
     </section>
   );
 }
