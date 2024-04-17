@@ -1,7 +1,7 @@
 
 import Australia  from "../assest/banks/Australia.png"
 import British from "../assest/banks/england.png"
-import Chile from "../assest/banks/Chile.png"
+import ChilePNG from "../assest/banks/Chile.png"
 import China from "../assest/banks/China.png"
 import Czech from "../assest/banks/Czech.png"
 import Danish from "../assest/banks/denmark.png"
@@ -29,7 +29,7 @@ export const BankData = [
     rateSymbol: "British pound"
  },
 {  
-    img: Chile,
+    img: ChilePNG,
     bankName:"Chilean Central Bank",
     rate: "CLP",
     rateSymbol: "Chilean peso"

@@ -10,7 +10,7 @@ export const InterestRateApi = createApi({
             url: 'v1/interestrate',
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': `${import.meta.env.VITE_RATE_API}`,
+                'X-RapidAPI-Key': `${import.meta.env.VITE_REALTIME_FINANCE}`,
                 'X-RapidAPI-Host': 'interest-rate-by-api-ninjas.p.rapidapi.com'
             }
          }

@@ -7,12 +7,13 @@ function BankInterestCard({
   rate,
   rateSymbol
 }) {
+  console.log(rate)
   return (
     <div className="flex gap-8 flex-col  w-full justify-between items-center p-4
     bg-slate-200 rounded-md mt-3 tablet:flex-row ">
        
            <div className="w-full max-w-[12rem] max-h-[12rem] h-[12rem] flex items-center justify-center ">
-           <img src={url} alt={url}  className={`w-full  ${centralBank === "Mexican Central Bank" ? "bg-black/80" : "" }`}  />
+           <img src={url} alt={rateSymbol}  className={`w-full  ${centralBank === "Mexican Central Bank" ? "bg-black/80" : "" }`}  />
            </div>
      
             <section  className="flex w-full gap-4 justify-around flex-col  xmobile:flex-row ">

@@ -14,7 +14,7 @@ const Footer = () => {
           <nav className="flex flex-col text-gray-200 font-semibold gap-2 mt-2  ">
             <Link to="/currency">Currency</Link>
             <Link to="/gold"> Gold</Link>
-            <Link to="/emtia"> Commodity</Link>
+            <Link to="/energy"> Energy</Link>
             <Link to="/cyrpto"> Cyrpto </Link>
             <Link to="/exchange"> Exchange</Link>
             <Link to="/market"> Stock Market</Link>

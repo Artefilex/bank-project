@@ -7,8 +7,8 @@ export const StockApi = createApi({
       getAllStocks: builder.query({
         query: () =>{
             const yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 3);
-            const yesterdayStr = yesterday.toISOString().split("T")[0];
+            yesterday.setDate(yesterday.getDate() - 2);
+            const yesterdayStr = yesterday?.toISOString()?.split("T")[0];
             return `v2/aggs/grouped/locale/us/market/stocks/${yesterdayStr}?adjusted=true&apiKey=${
                 import.meta.env.VITE_EXCHANGE_API
               }`
@@ -17,14 +17,6 @@ export const StockApi = createApi({
       getSearch: builder.query({
         query: (searchKey) => `v1/indicators/sma/${searchKey}?timespan=day&adjusted=true&window=50&series_type=close&order=desc&apiKey=${import.meta.env.VITE_EXCHANGE_API}`,
       }),
-      getSearchResult: builder.query({
-        query: (searchKey) => {
-          const today = new Date();
-          today.setDate(today.getDate() - 3);
-          const todayStr = today.toISOString().split('T')[0];
-          return `v2/aggs/ticker/${searchKey}/range/1/day/${todayStr}/${todayStr}?adjusted=true&sort=asc&limit=120&apiKey=${import.meta.env.VITE_EXCHANGE_API}`
-        }
-      })  
       }),
   });
   

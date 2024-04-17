@@ -40,7 +40,7 @@ const Converter = ({setConverterShow}) => {
   }, []);
   useEffect(() => {
     const fetchCurrency = async () => {
-      const { data } = await axios.get("https://open.er-api.com/v6/latest/TRY");
+      const { data } = await axios.get("https://open.er-api.com/v6/latest/USD");
 
       setCurrency(data.rates);
     };
@@ -67,9 +67,6 @@ const Converter = ({setConverterShow}) => {
       [name]: value,
     }));
   };
-  const handelSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <div className="flex flex-col items-center w-full justify-around max-w-[25rem] min-h-[20rem] tablet:w-[90%] gap-4 bg-slate-50 mobile:rounded-md border-2 border-slate-500 px-4 relative ">
       {flags && (
@@ -89,7 +86,7 @@ const Converter = ({setConverterShow}) => {
       )}
 
    { currency &&    <form
-        onSubmit={handelSubmit}
+       
         className="flex flex-col items-center w-full justify-between  tablet:w-[90%] gap-4 "
       >
         <div className="flex flex-row  max-w-[50rem] w-full justify-between items-center gap-2">

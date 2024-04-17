@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 function ListItem({value , title}) {
   return  <li className="flex flex-col items-center  gap-2">
-  <span  className="text-gray-500">{title} </span>
-  <span> ${Number(value).toFixed(3)}</span>
+  <span  className="text-gray-700">{title} </span>
+  <span>{value}</span>
 </li>;
 }
 ListItem.propTypes = {

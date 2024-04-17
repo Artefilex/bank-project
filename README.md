@@ -1,1 +1,4 @@
-# DataList Api is empty if you want running your computer you have an apikey from  apilayer
+<!-- VITE_INTEREST_API=7rHSGLNlMxvZaQdMtilN3b:1kgqOYzMAyjbQ2TrtbCY0o
+VITE_EXCHANGE_API=6peM1p0EdjIfTTg7OkdAbl33nhr8Gu7y
+VITE_FINNHUB_API=coe8151r01qjje1uipl0coe8151r01qjje1uiplg
+VITE_REALTIME_FINANCE=1abe096d66mshdc7099091eeef91p14909cjsn206ff71dc890 -->

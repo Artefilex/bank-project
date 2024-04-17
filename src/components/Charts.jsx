@@ -4,17 +4,18 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import { BiUpArrowAlt, BiDownArrowAlt } from "react-icons/bi";
 import {
   useGetSearchQuery,
-  useGetSearchResultQuery,
 } from "../reducers/StockApi";
 import ListItem from "./ListItem";
 import Error from "./Errors";
 import Loading from "./LoadingPage";
+import {useGetStocSearchkDataQuery} from "../reducers/StockSearchApi"
 function Charts() {
   const { searchKey } = useSelector((state) => state.searchItem);
 
   const [chartData, setChartData] = useState([]);
   const { data, error, isLoading } = useGetSearchQuery(searchKey || "AAPL");
-  const { data: result } = useGetSearchResultQuery(searchKey || "AAPL");
+  const { data: result } = useGetStocSearchkDataQuery(searchKey || "AAPL");
+ console.log(result)
   useEffect(() => {
     if (data && data.results && data.results.values) {
       const formattedData = data.results.values.map((item) => {
@@ -66,7 +67,7 @@ function Charts() {
       
       />
       <div className="flex w-[90%] items-center justify-center tablet:w-full">
-        {result && result?.results?.map((stock , i) => (
+        {result && result?.Results?.map((stock , i) => (
           <div
             key={i}
             className="flex w-[90%] justify-start gap-4 items-start flex-col"
@@ -79,29 +80,29 @@ function Charts() {
                 <h4 className="flex text-xl  gap-1 font-semibold text-slate-400 flex-col tablet:flex-row tablet:items-center">
                   {" "}
                   Volume{" "}
-                  <span className="text-lg text-slate-800">{stock.v}</span>{" "}
+                  <span className="text-lg text-slate-800">{stock.Volume}</span>{" "}
                 </h4>
-                <h4 className=" flex text-xl gap-1 font-semibold text-slate-400 flex-col tablet:flex-row  tablet:items-center">
+                 <h4 className=" flex text-xl gap-1 font-semibold text-slate-400 flex-col tablet:flex-row  tablet:items-center">
                   {" "}
-                  <span> Volume Weight </span>
+                  <span> Date </span>
                   <span className="text-lg text-slate-800">
-                    {stock.vw}
-                  </span>{" "}
+                    {stock.Date}
+                  </span>{" "} 
                 </h4>
               </div>
               <div className="flex items-center">
-                {stock.c - stock.o  > 0 ? (
+                {stock.AdjClose - stock.Open  > 0 ? (
                   <div>
                     <BiUpArrowAlt size={60} className="text-green-600" />
                     <span className="flex w-[5rem] gap-1 font-semibold">
                       {" "}
                       {Math.abs(
-                        Number(((stock.c - stock.o) / stock.o) * 100)
+                        Number(((stock.AdjClose - stock.Open) / stock.Open) * 100)
                       ).toFixed(4)}{" "}
                       <div>%</div>{" "}
                     </span>
                   </div>
-                ) : stock.c - stock.o === 0 ? (
+                ) : stock.AdjClose - stock.Open=== 0 ? (
                   ""
                 ) : (
                   <div>
@@ -109,7 +110,7 @@ function Charts() {
                     <span className="flex w-[5rem] gap-1 font-semibold">
                       {" "}
                       {Math.abs(
-                        Number(((stock.c - stock.o) / stock.o) * 100)
+                       Number(((stock.AdjClose - stock.Open) / stock.Open) * 100)
                       ).toFixed(4)}{" "}
                       <div>%</div>{" "}
                     </span>
@@ -120,10 +121,10 @@ function Charts() {
 
             <div className="flex w-full flex-col items-center tablet:flex-row">
               <ul className="flex justify-between items-center w-full gap-4 text-xl font-semibold  ">
-                <ListItem title="Open" value={stock.o} />
-                <ListItem title="Close" value={stock.c} />
-                <ListItem title="High" value={stock.h} />
-                <ListItem title="Low" value={stock.l} />
+                <ListItem title="Open" value={stock.Open} />
+                <ListItem title="Close" value={stock.Close} />
+                <ListItem title="High" value={stock.High} />
+                <ListItem title="Low" value={stock.Low} />
               </ul>
             </div>
           </div>
