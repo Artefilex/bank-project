@@ -15,7 +15,6 @@ function Charts() {
   const [chartData, setChartData] = useState([]);
   const { data, error, isLoading } = useGetSearchQuery(searchKey || "AAPL");
   const { data: result } = useGetStocSearchkDataQuery(searchKey || "AAPL");
- console.log(result)
   useEffect(() => {
     if (data && data.results && data.results.values) {
       const formattedData = data.results.values.map((item) => {

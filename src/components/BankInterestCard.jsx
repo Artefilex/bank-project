@@ -7,7 +7,6 @@ function BankInterestCard({
   rate,
   rateSymbol
 }) {
-  console.log(rate)
   return (
     <div className="flex gap-8 flex-col  w-full justify-between items-center p-4
     bg-slate-200 rounded-md mt-3 tablet:flex-row ">
