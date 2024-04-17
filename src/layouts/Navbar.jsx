@@ -37,7 +37,9 @@ const navigation = [
     rotation: "/credit",
   },
 ];
+import useScroll from "../hooks/useScroll";
 function Navbar() {
+  useScroll()
   const [showMenu, setShowMenu] = useState(false);
   const [converterShow, setConverterShow] = useState(false);
   const location = useLocation();
@@ -49,6 +51,7 @@ function Navbar() {
       setHide(false);
     }
   }, [location.pathname]);
+
   const { isMobile } = useResize();
   return (
     <>

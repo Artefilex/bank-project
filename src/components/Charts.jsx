@@ -75,13 +75,13 @@ function Charts() {
                   <h2 className="text-[2rem] font-bold text-slate-800">
                     {searchKey}
                   </h2>
-                  <h4 className="flex text-xl  gap-1 font-semibold text-slate-400 flex-col tablet:flex-row tablet:items-center">
+                  <h4 className="flex flex-col gap-1 text-xl font-semibold text-slate-400 tablet:flex-row tablet:items-center">
                     Volume
                     <span className="text-lg text-slate-800">
                       {stock.Volume}
                     </span>
                   </h4>
-                  <h4 className=" flex text-xl gap-1 font-semibold text-slate-400 flex-col tablet:flex-row  tablet:items-center">
+                  <h4 className="flex flex-col gap-1 text-xl font-semibold  text-slate-400 tablet:flex-row tablet:items-center">
                     
                     <span> Date </span>
                     <span className="text-lg text-slate-800">
@@ -119,8 +119,8 @@ function Charts() {
                   )}
                 </div>
               </header>
-              <div className="flex w-full flex-col items-center tablet:flex-row">
-                <ul className="flex justify-between items-center w-full gap-4 text-xl font-semibold  ">
+              <div className="flex flex-col items-center w-full tablet:flex-row">
+                <ul className="flex items-center justify-between w-full gap-4 text-xl font-semibold ">
                   <ListItem title="Open" value={stock.Open} />
                   <ListItem title="Close" value={stock.Close} />
                   <ListItem title="High" value={stock.High} />

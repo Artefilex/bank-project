@@ -19,7 +19,7 @@ const Dropdown = ({ options, value, onChange, name }) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <input
-          className="w-full border-none outline-none bg-transparent"
+          className="w-full bg-transparent border-none outline-none"
           type="text"
           value={filter}
           onChange={(e) => {
@@ -29,11 +29,11 @@ const Dropdown = ({ options, value, onChange, name }) => {
         />
       </div>
       {isOpen && (
-        <ul className="absolute w-full bg-gray-200 border mt-1 max-h-60 overflow-auto">
+        <ul className="absolute w-full mt-1 overflow-auto bg-gray-200 border max-h-60">
           {filteredOptions.map((option, key) => (
             <li
               key={key}
-              className="px-2 py-1 hover:bg-gray-300 flex items-center cursor-pointer"
+              className="flex items-center px-2 py-1 cursor-pointer hover:bg-gray-300"
               onClick={() => {
                 handleSelect(option.value);
                 setFilter(option.value);
